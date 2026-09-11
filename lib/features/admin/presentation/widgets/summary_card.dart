@@ -19,41 +19,44 @@ class SummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorTheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    return Container(
-      decoration: BoxDecoration(
-        color: colorTheme.surface,
-
-        boxShadow: [BoxShadow(color: colorTheme.onSurface,
-        offset: Offset(-0.5, 1),
-        blurRadius: 0.5
-        )],
-      ),
-      child: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(AppSpacing.cardPadding),
-            child: Column(
-              spacing: AppSpacing.cardGapSmall,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(title, style: textTheme.bodySmall,),
-                Text(number, style: textTheme.bodyMedium,),
-                Text(subTitle, style: textTheme.bodySmall,),
-              ],
-            ),
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(999),
+    return GestureDetector(
+      onTap: onClick ?? () {},
+      child: Container(
+        decoration: BoxDecoration(
+          color: colorTheme.surface,
+      
+          boxShadow: [BoxShadow(color: colorTheme.onSurface,
+          offset: Offset(-0.5, 1),
+          blurRadius: 0.5
+          )],
+        ),
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(AppSpacing.cardPadding),
+              child: Column(
+                spacing: AppSpacing.cardGapSmall,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(title, style: textTheme.bodySmall,),
+                  Text(number, style: textTheme.bodyMedium,),
+                  Text(subTitle, style: textTheme.bodySmall,),
+                ],
               ),
-              child: const Icon(Icons.arrow_outward_rounded),
             ),
-          ),
-        ],
+            Positioned(
+              top: 0,
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: const Icon(Icons.arrow_outward_rounded),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
