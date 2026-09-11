@@ -40,7 +40,7 @@ class SummaryCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(title, style: textTheme.bodySmall,),
-                  Text(number, style: textTheme.bodyMedium,),
+                  Text(number, style: textTheme.displaySmall,),
                   Text(subTitle, style: textTheme.bodySmall,),
                 ],
               ),
