@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'core/theme/app_theme.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -11,12 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Job4U',
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      home: Scaffold(
+        body: Center(
+          child: Text('Job4U - Clean Architecture'),
+        ),
+      ),
     );
   }
 }
