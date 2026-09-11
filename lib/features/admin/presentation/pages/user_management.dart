@@ -1,6 +1,7 @@
 import 'package:findwork_flutter/core/constants/app_spacing.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/analytics_card.dart';
 import '../widgets/screen_headline.dart';
 import '../widgets/summary_card.dart';
 
@@ -31,6 +32,8 @@ class UserManagementScreen extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) => SummaryCard(title: 'Activation Company', number: '30', subTitle: 'review account',),
               ),
+
+              AnalyticsCard(),
             ],
           ),
         ),
