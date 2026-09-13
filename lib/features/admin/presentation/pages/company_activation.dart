@@ -16,7 +16,8 @@ class CompanyActivationScreen extends StatefulWidget {
   const CompanyActivationScreen({super.key});
 
   @override
-  State<CompanyActivationScreen> createState() => _CompanyActivationScreenState();
+  State<CompanyActivationScreen> createState() =>
+      _CompanyActivationScreenState();
 }
 
 class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
@@ -24,12 +25,16 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
 
   List<CompanyActivation> get _reviewCompanies =>
       mockCompanyActivations.where((c) => c.status != 'Active').toList();
-  List<CompanyActivation> get _filteredCompanies => _filter.filterCompanies(_reviewCompanies);
+  List<CompanyActivation> get _filteredCompanies =>
+      _filter.filterCompanies(_reviewCompanies);
   int get _totalPages => _filter.totalPages(_filteredCompanies.length);
-  List<CompanyActivation> get _paginatedCompanies => _filter.paginateCompanies(_filteredCompanies);
+  List<CompanyActivation> get _paginatedCompanies =>
+      _filter.paginateCompanies(_filteredCompanies);
 
-  int get _pendingCount => _reviewCompanies.where((c) => c.status == 'Pending').length;
-  int get _rejectedCount => _reviewCompanies.where((c) => c.status == 'Rejected').length;
+  int get _pendingCount =>
+      _reviewCompanies.where((c) => c.status == 'Pending').length;
+  int get _rejectedCount =>
+      _reviewCompanies.where((c) => c.status == 'Rejected').length;
 
   void _showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -55,7 +60,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const HeadLine(message: 'Company Activations'),
-              SizedBox(height: AppSpacing.sectionInternalPadding),
+              AppSpacing.vertical12,
 
               GridView.count(
                 crossAxisCount: 2,
@@ -73,7 +78,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                     ),
                 ],
               ),
-              SizedBox(height: AppSpacing.sectionInternalPadding),
+              AppSpacing.vertical12,
 
               CompanyActivationTabs(
                 statusFilter: _filter.statusFilter,
@@ -89,7 +94,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                 rejectedCount: _rejectedCount,
                 totalCount: _reviewCompanies.length,
               ),
-              SizedBox(height: AppSpacing.sectionInternalPadding),
+              AppSpacing.vertical12,
 
               AppSearchField(
                 hintText: 'Search by company name...',
@@ -120,9 +125,14 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
 
               if (_filteredCompanies.isEmpty)
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: AppSpacing.sectionGap,
+                  ),
                   child: Center(
-                    child: Text('No companies found', style: textTheme.bodyMedium),
+                    child: Text(
+                      'No companies found',
+                      style: textTheme.bodyMedium,
+                    ),
                   ),
                 )
               else
@@ -134,7 +144,9 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                         context,
                         company: company,
                         onActivate: () {
-                          _showSnackbar('${company.name} has been activated successfully');
+                          _showSnackbar(
+                            '${company.name} has been activated successfully',
+                          );
                         },
                         onReject: () {
                           _showSnackbar('${company.name} has been rejected');
@@ -144,7 +156,8 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   ),
                 ),
 
-              SizedBox(height: AppSpacing.sectionInternalPadding),
+              AppSpacing.vertical12,
+
               AppPagination(
                 currentPage: _filter.currentPage,
                 totalPages: _totalPages,
