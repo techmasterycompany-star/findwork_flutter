@@ -22,13 +22,14 @@ class CompanyActivationScreen extends StatefulWidget {
 class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
   AdminFilterState _filter = const AdminFilterState();
 
-  List<CompanyActivation> get _filteredCompanies => _filter.filterCompanies(mockCompanyActivations);
+  List<CompanyActivation> get _reviewCompanies =>
+      mockCompanyActivations.where((c) => c.status != 'Active').toList();
+  List<CompanyActivation> get _filteredCompanies => _filter.filterCompanies(_reviewCompanies);
   int get _totalPages => _filter.totalPages(_filteredCompanies.length);
   List<CompanyActivation> get _paginatedCompanies => _filter.paginateCompanies(_filteredCompanies);
 
-  int get _pendingCount => mockCompanyActivations.where((c) => c.status == 'Pending').length;
-  int get _activeCount => mockCompanyActivations.where((c) => c.status == 'Active').length;
-  int get _rejectedCount => mockCompanyActivations.where((c) => c.status == 'Rejected').length;
+  int get _pendingCount => _reviewCompanies.where((c) => c.status == 'Pending').length;
+  int get _rejectedCount => _reviewCompanies.where((c) => c.status == 'Rejected').length;
 
   void _showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -85,9 +86,8 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   });
                 },
                 pendingCount: _pendingCount,
-                activeCount: _activeCount,
                 rejectedCount: _rejectedCount,
-                totalCount: mockCompanyActivations.length,
+                totalCount: _reviewCompanies.length,
               ),
               SizedBox(height: AppSpacing.sectionInternalPadding),
 

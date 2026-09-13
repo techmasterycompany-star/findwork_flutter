@@ -7,7 +7,6 @@ class CompanyActivationTabs extends StatelessWidget {
   final String? statusFilter;
   final ValueChanged<String?> onStatusFilterChanged;
   final int pendingCount;
-  final int activeCount;
   final int rejectedCount;
   final int totalCount;
 
@@ -16,7 +15,6 @@ class CompanyActivationTabs extends StatelessWidget {
     required this.statusFilter,
     required this.onStatusFilterChanged,
     required this.pendingCount,
-    required this.activeCount,
     required this.rejectedCount,
     required this.totalCount,
   });
@@ -34,9 +32,9 @@ class CompanyActivationTabs extends StatelessWidget {
         ),
         const SizedBox(width: AppSpacing.iconTextGap),
         _TabChip(
-          label: 'Activations',
-          count: activeCount + pendingCount,
-          isSelected: statusFilter == 'Pending' || statusFilter == 'Active',
+          label: 'Pending',
+          count: pendingCount,
+          isSelected: statusFilter == 'Pending',
           onTap: () => onStatusFilterChanged('Pending'),
         ),
         const SizedBox(width: AppSpacing.iconTextGap),

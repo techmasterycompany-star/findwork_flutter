@@ -39,7 +39,7 @@ final List<CompanyActivation> mockCompanyActivations = [
     name: 'Green Energy Co',
     category: 'Renewable Energy',
     date: '23/08/2026',
-    status: 'Active',
+    status: 'Pending',
     email: 'hello@greenenergy.com',
     phone: '+20 122 345 6789',
     description: 'Leading provider of renewable energy solutions for residential and commercial use.',
