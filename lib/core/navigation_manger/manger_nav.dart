@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 GoRouter router = GoRouter(
   initialLocation: '/EmployerProfile',
   routes: [
+    // ============ EMPLOYER ============
     GoRoute(
       path: '/EmployerProfile',
       builder: (context, state) => const EmployerProfile(),
@@ -19,7 +20,7 @@ GoRouter router = GoRouter(
 
     GoRoute(
       path: '/CompanyActivation',
-      builder: (context, state) => CompanyActivationScreen(),
+      builder: (context, state) => const CompanyActivationScreen(),
     ),
   ],
 );
