@@ -4,6 +4,7 @@ import '../../../../core/constants/app_spacing.dart';
 import '../../business_logic/admin_filter.dart';
 import '../../data/mock_data.dart';
 import '../widgets/company_activation_card.dart';
+import '../widgets/company_activation_detail.dart';
 import '../widgets/company_activation_tabs.dart';
 import '../widgets/date_filter.dart';
 import '../widgets/pagination.dart';
@@ -28,6 +29,16 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
   int get _pendingCount => mockCompanyActivations.where((c) => c.status == 'Pending').length;
   int get _activeCount => mockCompanyActivations.where((c) => c.status == 'Active').length;
   int get _rejectedCount => mockCompanyActivations.where((c) => c.status == 'Rejected').length;
+
+  void _showSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +127,21 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                 )
               else
                 ..._paginatedCompanies.map(
-                  (company) => CompanyActivationCard(company: company),
+                  (company) => CompanyActivationCard(
+                    company: company,
+                    onReview: () {
+                      CompanyActivationDetail.show(
+                        context,
+                        company: company,
+                        onActivate: () {
+                          _showSnackbar('${company.name} has been activated successfully');
+                        },
+                        onReject: () {
+                          _showSnackbar('${company.name} has been rejected');
+                        },
+                      );
+                    },
+                  ),
                 ),
 
               SizedBox(height: AppSpacing.sectionInternalPadding),

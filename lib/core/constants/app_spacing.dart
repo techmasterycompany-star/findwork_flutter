@@ -21,6 +21,13 @@ abstract class AppSpacing {
   static const double menuToSectionsGap = 32.0;
   static const double footerToSectionsGap = 64.0;
 
+  // ==================== Border Radius ====================
+  static const double radiusTiny = 4.0;
+  static const double radiusSmall = 8.0;
+  static const double radiusMedium = 10.0;
+  static const double radiusLarge = 12.0;
+  static const double radiusXLarge = 16.0;
+
   // ==================== SizedBox Helpers ====================
   static const SizedBox vertical8 = SizedBox(height: iconTextGap);
   static const SizedBox vertical12 = SizedBox(height: titleToDescription);
