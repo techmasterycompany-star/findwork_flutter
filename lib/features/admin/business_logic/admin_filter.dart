@@ -1,4 +1,5 @@
 import '../data/models/company_activation.dart';
+import '../data/models/job.dart';
 import '../data/models/user_management_data.dart';
 
 class AdminFilterState {
@@ -72,6 +73,27 @@ class AdminFilterState {
   }
 
   List<UserManagementData> paginateUsers(List<UserManagementData> list) {
+    final startIndex = (currentPage - 1) * itemsPerPage;
+    final endIndex = startIndex + itemsPerPage;
+    if (startIndex >= list.length) return [];
+    return list.sublist(
+      startIndex,
+      endIndex > list.length ? list.length : endIndex,
+    );
+  }
+
+  List<Job> filterJobs(List<Job> jobs) {
+    return jobs.where((job) {
+      final matchesSearch = searchQuery.isEmpty ||
+          job.companyName.toLowerCase().contains(searchQuery.toLowerCase());
+      final matchesStatus =
+          statusFilter == null || job.status == statusFilter;
+      final matchesDate = selectedDate == null || job.date == selectedDate;
+      return matchesSearch && matchesStatus && matchesDate;
+    }).toList();
+  }
+
+  List<Job> paginateJobs(List<Job> list) {
     final startIndex = (currentPage - 1) * itemsPerPage;
     final endIndex = startIndex + itemsPerPage;
     if (startIndex >= list.length) return [];
