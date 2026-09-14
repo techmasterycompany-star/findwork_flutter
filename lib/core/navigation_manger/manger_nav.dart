@@ -4,7 +4,7 @@ import 'package:findwork_flutter/features/employer/presentation/pages/employer_p
 import 'package:go_router/go_router.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: '/UserManagement',
+  initialLocation: '/CompanyActivation',
   routes: [
     // ============ EMPLOYER ============
     GoRoute(
