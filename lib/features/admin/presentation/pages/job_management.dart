@@ -22,14 +22,13 @@ class JobManagementScreen extends StatefulWidget {
 class _JobManagementScreenState extends State<JobManagementScreen> {
   AdminFilterState _filter = const AdminFilterState();
 
-  List<Job> get _pendingJobs =>
-      mockJobs.where((j) => j.status == 'Pending' || j.status == 'Rejected').toList();
-  List<Job> get _filteredJobs => _filter.filterJobs(_pendingJobs);
+  List<Job> get _allJobs => mockJobs;
+  List<Job> get _filteredJobs => _filter.filterJobs(_allJobs);
   int get _totalPages => _filter.totalPages(_filteredJobs.length);
   List<Job> get _paginatedJobs => _filter.paginateJobs(_filteredJobs);
 
-  int get _pendingCount => _pendingJobs.where((j) => j.status == 'Pending').length;
-  int get _approvedCount => mockJobs.where((j) => j.status == 'Accepted').length;
+  int get _pendingCount => _allJobs.where((j) => j.status == 'Pending').length;
+  int get _approvedCount => _allJobs.where((j) => j.status == 'Accepted').length;
 
   void _showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -89,7 +88,7 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
                 },
                 pendingCount: _pendingCount,
                 approvedCount: _approvedCount,
-                totalCount: _pendingJobs.length,
+                totalCount: _allJobs.length,
               ),
               AppSpacing.vertical24,
 
