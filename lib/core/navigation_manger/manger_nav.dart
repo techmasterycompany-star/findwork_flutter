@@ -1,3 +1,4 @@
+import 'package:findwork_flutter/core/utils/notification.dart';
 import 'package:findwork_flutter/features/admin/presentation/pages/company_activation.dart';
 import 'package:findwork_flutter/features/admin/presentation/pages/job_management.dart';
 import 'package:findwork_flutter/features/admin/presentation/pages/user_management.dart';
@@ -5,7 +6,7 @@ import 'package:findwork_flutter/features/employer/presentation/pages/employer_p
 import 'package:go_router/go_router.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: '/JobManagement',
+  initialLocation: '/Notification',
   routes: [
     // ============ EMPLOYER ============
     GoRoute(
@@ -27,6 +28,12 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/JobManagement',
       builder: (context, state) => const JobManagementScreen(),
+    ),
+
+    // ============ OTHERS ============
+        GoRoute(
+      path: '/Notification',
+      builder: (context, state) => const NotificationScreen(),
     ),
   ],
 );
