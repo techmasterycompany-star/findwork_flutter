@@ -5,8 +5,10 @@ import 'package:findwork_flutter/features/admin/presentation/pages/user_manageme
 import 'package:findwork_flutter/features/employer/presentation/pages/employer_profile/employer_profile.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/admin/presentation/admin_main.dart';
+
 GoRouter router = GoRouter(
-  initialLocation: '/Notification',
+  initialLocation: '/AdminMain',
   routes: [
     // ============ EMPLOYER ============
     GoRoute(
@@ -15,6 +17,8 @@ GoRouter router = GoRouter(
     ),
 
     // ============ ADMIN ============
+    GoRoute(path: '/AdminMain', builder: (context, state) => const AdminMain()),
+
     GoRoute(
       path: '/UserManagement',
       builder: (context, state) => const UserManagementScreen(),
@@ -31,7 +35,7 @@ GoRouter router = GoRouter(
     ),
 
     // ============ OTHERS ============
-        GoRoute(
+    GoRoute(
       path: '/Notification',
       builder: (context, state) => const NotificationScreen(),
     ),
