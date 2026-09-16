@@ -51,15 +51,14 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
     final textTheme = Theme.of(context).textTheme;
     final summaryCards = getCompanyActivationSummary();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
-          padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HeadLine(message: 'Company Activations'),
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
+        padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HeadLine(message: 'Company Activations'),
               AppSpacing.vertical12,
 
               GridView.count(
@@ -170,7 +169,6 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

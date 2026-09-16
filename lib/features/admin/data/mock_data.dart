@@ -603,3 +603,17 @@ List<SummaryCardData> getJobManagementSummary() {
     SummaryCardData(title: 'Rejected', number: '$rejected', subTitle: '10% From last week'),
   ];
 }
+
+List<SummaryCardData> getOverviewSummary() {
+  final pendingCompanies = mockCompanyActivations.where((c) => c.status == 'Pending').length;
+  final pendingJobs = mockJobs.where((j) => j.status == 'Pending').length;
+  final totalJobs = mockJobs.length;
+  final totalUsers = mockUsers.length;
+
+  return [
+    SummaryCardData(title: 'Activation Company', number: '$pendingCompanies', subTitle: 'Review Account'),
+    SummaryCardData(title: 'Pending Jobs', number: '$pendingJobs', subTitle: 'Review job Queue'),
+    SummaryCardData(title: 'Total Jobs', number: '$totalJobs', subTitle: '+12% From last week'),
+    SummaryCardData(title: 'Total User', number: '$totalUsers', subTitle: '+8.1% From last week'),
+  ];
+}

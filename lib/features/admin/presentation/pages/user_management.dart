@@ -30,15 +30,14 @@ class _UserManagementScreenState extends State<UserManagementScreen> {
     final textTheme = Theme.of(context).textTheme;
     final summaryCards = getUserManagementSummary();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
-          padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HeadLine(message: 'User Management'),
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
+        padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HeadLine(message: 'User Management'),
               SizedBox(height: AppSpacing.sectionInternalPadding),
 
               GridView.count(
@@ -147,7 +146,6 @@ class _UserManagementScreenState extends State<UserManagementScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

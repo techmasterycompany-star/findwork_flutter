@@ -47,15 +47,14 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
     final textTheme = Theme.of(context).textTheme;
     final summaryCards = getJobManagementSummary();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
-          padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HeadLine(message: 'Job Management'),
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
+        padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const HeadLine(message: 'Job Management'),
               AppSpacing.vertical24,
 
               GridView.count(
@@ -155,8 +154,7 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
                   });
                 },
               ),
-            ],
-          ),
+          ],
         ),
       ),
     );
