@@ -10,7 +10,7 @@ abstract class AppTheme {
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.neutral50,
       primaryColor: AppColors.primary600,
-      
+
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary600,
         secondary: AppColors.primary500,
@@ -24,9 +24,13 @@ abstract class AppTheme {
         displayLarge: AppTypography.h1.copyWith(color: AppColors.neutral900),
         displayMedium: AppTypography.h2.copyWith(color: AppColors.neutral900),
         displaySmall: AppTypography.h3.copyWith(color: AppColors.neutral900),
-        titleLarge: AppTypography.cardTitle.copyWith(color: AppColors.neutral900),
+        titleLarge: AppTypography.cardTitle.copyWith(
+          color: AppColors.neutral900,
+        ),
         bodyLarge: AppTypography.body.copyWith(color: AppColors.neutral800),
-        bodyMedium: AppTypography.smallText.copyWith(color: AppColors.neutral700),
+        bodyMedium: AppTypography.smallText.copyWith(
+          color: AppColors.neutral700,
+        ),
         bodySmall: AppTypography.caption.copyWith(color: AppColors.neutral500),
       ),
 
@@ -63,9 +67,13 @@ abstract class AppTheme {
         displayLarge: AppTypography.h1.copyWith(color: AppColors.neutral50),
         displayMedium: AppTypography.h2.copyWith(color: AppColors.neutral50),
         displaySmall: AppTypography.h3.copyWith(color: AppColors.neutral50),
-        titleLarge: AppTypography.cardTitle.copyWith(color: AppColors.neutral50),
+        titleLarge: AppTypography.cardTitle.copyWith(
+          color: AppColors.neutral50,
+        ),
         bodyLarge: AppTypography.body.copyWith(color: AppColors.neutral200),
-        bodyMedium: AppTypography.smallText.copyWith(color: AppColors.neutral300),
+        bodyMedium: AppTypography.smallText.copyWith(
+          color: AppColors.neutral300,
+        ),
         bodySmall: AppTypography.caption.copyWith(color: AppColors.neutral400),
       ),
 
