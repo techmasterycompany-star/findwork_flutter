@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_spacing.dart';
+import '../../features/admin/presentation/admin_strings.dart';
 import '../../features/admin/presentation/widgets/screen_headline.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
     final notifications = <String>[];
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
@@ -18,7 +20,7 @@ class NotificationScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HeadLine(message: 'Notification'),
+              HeadLine(message: strings.notification),
               AppSpacing.vertical24,
               if (notifications.isEmpty)
                 Center(
@@ -26,7 +28,10 @@ class NotificationScreen extends StatelessWidget {
                     children: [
                       Image.asset('assets/images/rafiki.png', width: 300),
 
-                      Text('Nothing right now. Check back later!', style: textTheme.displayLarge,),
+                      Text(
+                        strings.noNotifications,
+                        style: textTheme.displayLarge,
+                      ),
                     ],
                   ),
                 )

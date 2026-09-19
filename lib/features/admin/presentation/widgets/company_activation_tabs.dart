@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
+import '../admin_strings.dart';
 
 class CompanyActivationTabs extends StatelessWidget {
   final String? statusFilter;
@@ -21,25 +22,27 @@ class CompanyActivationTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
+
     return Row(
       mainAxisAlignment: .spaceAround,
       children: [
         _TabChip(
-          label: 'All',
+          label: strings.all,
           count: totalCount,
           isSelected: statusFilter == null,
           onTap: () => onStatusFilterChanged(null),
         ),
         const SizedBox(width: AppSpacing.iconTextGap),
         _TabChip(
-          label: 'Pending',
+          label: strings.pending,
           count: pendingCount,
           isSelected: statusFilter == 'Pending',
           onTap: () => onStatusFilterChanged('Pending'),
         ),
         const SizedBox(width: AppSpacing.iconTextGap),
         _TabChip(
-          label: 'Rejected',
+          label: strings.rejected,
           count: rejectedCount,
           isSelected: statusFilter == 'Rejected',
           onTap: () => onStatusFilterChanged('Rejected'),
@@ -75,9 +78,7 @@ class _TabChip extends StatelessWidget {
           color: isSelected ? AppColors.primary600 : colorTheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected
-                ? AppColors.primary600
-                : colorTheme.onSurface,
+            color: isSelected ? AppColors.primary600 : colorTheme.onSurface,
           ),
         ),
         child: Row(
@@ -92,9 +93,7 @@ class _TabChip extends StatelessWidget {
             const SizedBox(width: 4),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-              ),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
               child: Text(
                 '$count',
                 style: textTheme.bodySmall?.copyWith(

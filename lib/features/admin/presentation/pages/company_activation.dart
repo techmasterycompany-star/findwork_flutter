@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../business_logic/admin_filter.dart';
-import '../../data/mock_data.dart';
+import '../../data/admin_mock_data.dart';
+import '../admin_strings.dart';
 import '../widgets/company_activation_card.dart';
 import '../widgets/company_activation_detail.dart';
 import '../widgets/company_activation_tabs.dart';
@@ -48,6 +49,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
     final textTheme = Theme.of(context).textTheme;
     final summaryCards = getCompanyActivationSummary();
 
@@ -58,7 +60,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeadLine(message: 'Company Activations'),
+            HeadLine(message: strings.companyActivation),
               AppSpacing.vertical12,
 
               GridView.count(
@@ -96,7 +98,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
               AppSpacing.vertical12,
 
               AppSearchField(
-                hintText: 'Search by company name...',
+                hintText: strings.searchByCompany,
                 searchQuery: _filter.searchQuery,
                 onChanged: (value) {
                   setState(() {
@@ -129,7 +131,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   ),
                   child: Center(
                     child: Text(
-                      'No companies found',
+                      strings.noCompaniesFound,
                       style: textTheme.bodyMedium,
                     ),
                   ),

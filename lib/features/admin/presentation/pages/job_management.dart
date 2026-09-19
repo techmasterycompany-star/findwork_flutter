@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../business_logic/admin_filter.dart';
-import '../../data/mock_data.dart';
+import '../../data/admin_mock_data.dart';
+import '../admin_strings.dart';
 import '../widgets/job_management_card.dart';
 import '../widgets/job_management_detail.dart';
 import '../widgets/job_management_tabs.dart';
@@ -44,6 +45,7 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
     final textTheme = Theme.of(context).textTheme;
     final summaryCards = getJobManagementSummary();
 
@@ -54,7 +56,7 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeadLine(message: 'Job Management'),
+            HeadLine(message: strings.jobManagement),
               AppSpacing.vertical24,
 
               GridView.count(
@@ -92,7 +94,7 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
               AppSpacing.vertical24,
 
               AppSearchField(
-                hintText: 'Search by company name...',
+                hintText: strings.searchByCompany,
                 searchQuery: _filter.searchQuery,
                 onChanged: (value) {
                   setState(() {
@@ -122,7 +124,7 @@ class _JobManagementScreenState extends State<JobManagementScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
                   child: Center(
-                    child: Text('No jobs found', style: textTheme.bodyMedium),
+                    child: Text(strings.noJobsFound, style: textTheme.bodyMedium),
                   ),
                 )
               else

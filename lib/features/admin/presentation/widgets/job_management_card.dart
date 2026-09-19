@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../data/models/job.dart';
+import '../admin_strings.dart';
 
 class JobManagementCard extends StatelessWidget {
   final Job job;
@@ -13,11 +14,11 @@ class JobManagementCard extends StatelessWidget {
   Color _statusBgColor(ColorScheme colorTheme) {
     switch (job.status) {
       case 'Accepted':
-        return AppColors.success50;
+        return AppColors.success200;
       case 'Rejected':
-        return AppColors.error50;
+        return AppColors.error200;
       default:
-        return AppColors.warning50;
+        return AppColors.warning100;
     }
   }
 
@@ -36,6 +37,7 @@ class JobManagementCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorTheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final strings = AdminStrings.of(context);
 
     return Container(
       margin: const EdgeInsets.only(bottom: AppSpacing.iconTextGap),
@@ -107,7 +109,13 @@ class JobManagementCard extends StatelessWidget {
                               AppSpacing.radiusTiny,
                             ),
                           ),
-                          child: Text(job.jobType, style: textTheme.bodySmall),
+                          child: Text(
+                            job.jobType,
+                            style: textTheme.bodyMedium?.copyWith(
+                              fontWeight: .bold,
+                              color: AppColors.success500
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -125,8 +133,9 @@ class JobManagementCard extends StatelessWidget {
                       ),
                       child: Text(
                         job.status,
-                        style: textTheme.bodySmall?.copyWith(
+                        style: textTheme.bodyMedium?.copyWith(
                           color: _statusTextColor(colorTheme),
+                          fontWeight: .bold,
                         ),
                       ),
                     ),
@@ -150,7 +159,10 @@ class JobManagementCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                 ),
               ),
-              child: const Text('Review'),
+              child: Text(
+                strings.review,
+                style: textTheme.bodyLarge?.copyWith(fontWeight: .bold),
+              ),
             ),
           ),
         ],

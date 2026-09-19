@@ -4,10 +4,13 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/utils/notification.dart';
 import '../../../../core/utils/widgets/pill_button.dart';
-import 'package:findwork_flutter/features/admin/data/mock_data.dart';
+import 'package:findwork_flutter/features/admin/data/admin_mock_data.dart';
 import 'package:findwork_flutter/features/admin/presentation/widgets/summary_card.dart';
+import '../business_logic/admin_settings_controller.dart';
+import 'admin_strings.dart';
 import 'pages/company_activation.dart';
 import 'pages/job_management.dart';
+import 'pages/settings.dart';
 import 'pages/user_management.dart';
 import 'widgets/screen_headline.dart';
 
@@ -27,14 +30,7 @@ class _AdminMainState extends State<AdminMain> {
     JobManagementScreen(),
     UserManagementScreen(),
     NotificationScreen(),
-  ];
-
-  final _drawerItems = const [
-    _DrawerItem(icon: Icons.dashboard_outlined, label: 'Overview'),
-    _DrawerItem(icon: Icons.business_outlined, label: 'Company Activation'),
-    _DrawerItem(icon: Icons.work_outline, label: 'Job Management'),
-    _DrawerItem(icon: Icons.people_outline, label: 'User Management'),
-    _DrawerItem(icon: Icons.notifications_outlined, label: 'Notification'),
+    SettingsScreen(),
   ];
 
   void _onDrawerItemTap(int index) {
@@ -44,6 +40,22 @@ class _AdminMainState extends State<AdminMain> {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
+    final drawerItems = [
+      _DrawerItem(icon: Icons.dashboard_outlined, label: strings.overview),
+      _DrawerItem(
+        icon: Icons.business_outlined,
+        label: strings.companyActivation,
+      ),
+      _DrawerItem(icon: Icons.work_outline, label: strings.jobManagement),
+      _DrawerItem(icon: Icons.people_outline, label: strings.userManagement),
+      _DrawerItem(
+        icon: Icons.notifications_outlined,
+        label: strings.notification,
+      ),
+      _DrawerItem(icon: Icons.settings_outlined, label: strings.settings),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -53,7 +65,7 @@ class _AdminMainState extends State<AdminMain> {
           ),
         ),
 
-        title: const Text('JobIU'),
+        title: const Text('Job4U'),
         actions: [
           IconButton(icon: const Icon(Icons.search), onPressed: () {}),
           IconButton(
@@ -85,11 +97,11 @@ class _AdminMainState extends State<AdminMain> {
                   padding: EdgeInsets.symmetric(
                     horizontal: AppSpacing.sectionInternalPadding,
                   ),
-                  child: HeadLine(message: 'Navigation'),
+                  child: _NavigationHeadline(),
                 ),
                 const SizedBox(height: AppSpacing.iconTextGap),
-                ...List.generate(_drawerItems.length, (index) {
-                  final item = _drawerItems[index];
+                ...List.generate(drawerItems.length, (index) {
+                  final item = drawerItems[index];
                   return Padding(
                     padding: const EdgeInsets.only(
                       bottom: AppSpacing.iconTextGap,
@@ -124,6 +136,7 @@ class _OverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
     final summaryCards = getOverviewSummary();
 
     return SingleChildScrollView(
@@ -133,7 +146,7 @@ class _OverviewPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeadLine(message: 'Job Management'),
+            HeadLine(message: strings.overview),
             AppSpacing.vertical24,
             GridView.count(
               crossAxisCount: 2,
@@ -154,6 +167,20 @@ class _OverviewPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _NavigationHeadline extends StatelessWidget {
+  const _NavigationHeadline();
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: AdminSettingsController.instance,
+      builder: (context, _) {
+        return HeadLine(message: AdminStrings.of(context).navigation);
+      },
     );
   }
 }

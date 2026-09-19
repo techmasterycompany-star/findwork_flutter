@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../data/models/company_activation.dart';
+import '../admin_strings.dart';
 
 class CompanyActivationCard extends StatelessWidget {
   final CompanyActivation company;
@@ -16,12 +17,12 @@ class CompanyActivationCard extends StatelessWidget {
 
   Color _statusBgColor(ColorScheme colorTheme) {
     switch (company.status) {
-      case 'Active':
-        return AppColors.success50;
+      case 'Accepted':
+        return AppColors.success200;
       case 'Rejected':
-        return AppColors.error50;
+        return AppColors.error200;
       default:
-        return AppColors.warning50;
+        return AppColors.warning100;
     }
   }
 
@@ -40,6 +41,7 @@ class CompanyActivationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorTheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final strings = AdminStrings.of(context);
 
     return Container(
       margin: const EdgeInsets.only(bottom: AppSpacing.iconTextGap),
@@ -66,7 +68,11 @@ class CompanyActivationCard extends StatelessWidget {
                   color: colorTheme.primary,
                   borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                 ),
-                child: Icon(Icons.business, color: colorTheme.onPrimary, size: 24),
+                child: Icon(
+                  Icons.business,
+                  color: colorTheme.onPrimary,
+                  size: 24,
+                ),
               ),
               AppSpacing.horizontal24,
               Expanded(
@@ -89,13 +95,15 @@ class CompanyActivationCard extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: _statusBgColor(colorTheme),
-                        borderRadius: BorderRadius.circular(AppSpacing.radiusTiny),
+                        borderRadius: BorderRadius.circular(
+                          AppSpacing.radiusTiny,
+                        ),
                       ),
                       child: Text(
                         company.status,
-                        style: textTheme.bodySmall?.copyWith(
+                        style: textTheme.bodyMedium?.copyWith(
                           color: _statusTextColor(colorTheme),
-                          fontSize: 12,
+                          fontWeight: .bold
                         ),
                       ),
                     ),
@@ -125,7 +133,9 @@ class CompanyActivationCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                 ),
               ),
-              child: const Text('Review'),
+              child: Text(strings.review, style: textTheme.bodyLarge?.copyWith(
+                fontWeight: .bold
+              ),),
             ),
           ),
         ],

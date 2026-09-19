@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
+import '../admin_strings.dart';
 
 class JobManagementTabs extends StatelessWidget {
   final String? statusFilter;
@@ -21,25 +22,27 @@ class JobManagementTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
+
     return Row(
       mainAxisAlignment: .spaceAround,
       children: [
         _TabChip(
-          label: 'All',
+          label: strings.all,
           count: totalCount,
           isSelected: statusFilter == null,
           onTap: () => onStatusFilterChanged(null),
         ),
         AppSpacing.horizontal8,
         _TabChip(
-          label: 'Pending',
+          label: strings.pending,
           count: pendingCount,
           isSelected: statusFilter == 'Pending',
           onTap: () => onStatusFilterChanged('Pending'),
         ),
         AppSpacing.horizontal8,
         _TabChip(
-          label: 'Approved',
+          label: strings.approved,
           count: approvedCount,
           isSelected: statusFilter == 'Accepted',
           onTap: () => onStatusFilterChanged('Accepted'),
@@ -75,9 +78,7 @@ class _TabChip extends StatelessWidget {
           color: isSelected ? AppColors.primary600 : colorTheme.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
           border: Border.all(
-            color: isSelected
-                ? AppColors.primary600
-                : colorTheme.onSurface,
+            color: isSelected ? AppColors.primary600 : colorTheme.onSurface,
           ),
         ),
         child: Row(

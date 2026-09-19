@@ -16,7 +16,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'info@techsolutions.com',
     phone: '+20 100 123 4567',
-    description: 'We build innovative software solutions to help businesses grow and succeed.',
+    description:
+        'We build innovative software solutions to help businesses grow and succeed.',
     industry: 'Software / SaaS',
     companySize: '11 - 50 employees',
     website: 'www.techsolutions.com',
@@ -30,7 +31,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'contact@digitalworld.com',
     phone: '+20 111 234 5678',
-    description: 'Full-service digital agency specializing in web and mobile development.',
+    description:
+        'Full-service digital agency specializing in web and mobile development.',
     industry: 'Software / SaaS',
     companySize: '51 - 100 employees',
     website: 'www.digitalworld.com',
@@ -44,7 +46,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'hello@greenenergy.com',
     phone: '+20 122 345 6789',
-    description: 'Leading provider of renewable energy solutions for residential and commercial use.',
+    description:
+        'Leading provider of renewable energy solutions for residential and commercial use.',
     industry: 'Renewable Energy',
     companySize: '101 - 250 employees',
     website: 'www.greenenergy.com',
@@ -58,7 +61,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'support@healthplus.com',
     phone: '+20 101 456 7890',
-    description: 'Healthcare platform providing telemedicine and wellness services.',
+    description:
+        'Healthcare platform providing telemedicine and wellness services.',
     industry: 'Healthcare / Medical',
     companySize: '21 - 50 employees',
     website: 'www.healthplus.com',
@@ -72,7 +76,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Rejected',
     email: 'admin@edulearn.com',
     phone: '+20 112 567 8901',
-    description: 'Online education platform offering courses and certifications.',
+    description:
+        'Online education platform offering courses and certifications.',
     industry: 'Education / E-Learning',
     companySize: '11 - 50 employees',
     website: 'www.edulearn.com',
@@ -86,7 +91,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Active',
     email: 'info@foodiehub.com',
     phone: '+20 103 678 9012',
-    description: 'Food delivery and catering services connecting restaurants with customers.',
+    description:
+        'Food delivery and catering services connecting restaurants with customers.',
     industry: 'Food & Beverage',
     companySize: '51 - 100 employees',
     website: 'www.foodiehub.com',
@@ -100,7 +106,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'contact@financepro.com',
     phone: '+20 114 789 0123',
-    description: 'Financial consulting and investment management for businesses.',
+    description:
+        'Financial consulting and investment management for businesses.',
     industry: 'Finance / Banking',
     companySize: '11 - 50 employees',
     website: 'www.financepro.com',
@@ -142,7 +149,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'info@buildit.com',
     phone: '+20 107 012 3456',
-    description: 'Construction company specializing in residential and commercial projects.',
+    description:
+        'Construction company specializing in residential and commercial projects.',
     industry: 'Construction / Real Estate',
     companySize: '101 - 250 employees',
     website: 'www.buildit.com',
@@ -170,7 +178,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'contact@mediaworks.com',
     phone: '+20 109 234 5678',
-    description: 'Media production company creating digital content and advertising.',
+    description:
+        'Media production company creating digital content and advertising.',
     industry: 'Media & Entertainment',
     companySize: '21 - 50 employees',
     website: 'www.mediaworks.com',
@@ -184,7 +193,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Active',
     email: 'info@autodrive.com',
     phone: '+20 110 345 6789',
-    description: 'Automotive technology company developing autonomous driving systems.',
+    description:
+        'Automotive technology company developing autonomous driving systems.',
     industry: 'Automotive / Technology',
     companySize: '51 - 100 employees',
     website: 'www.autodrive.com',
@@ -198,7 +208,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Pending',
     email: 'hello@petcare.com',
     phone: '+20 112 456 7890',
-    description: 'Pet care services including grooming, boarding, and veterinary care.',
+    description:
+        'Pet care services including grooming, boarding, and veterinary care.',
     industry: 'Animal Care / Services',
     companySize: '11 - 50 employees',
     website: 'www.petcare.com',
@@ -212,7 +223,8 @@ final List<CompanyActivation> mockCompanyActivations = [
     status: 'Rejected',
     email: 'support@logiswift.com',
     phone: '+20 114 567 8901',
-    description: 'Last-mile delivery and logistics solutions for e-commerce businesses.',
+    description:
+        'Last-mile delivery and logistics solutions for e-commerce businesses.',
     industry: 'Logistics / Supply Chain',
     companySize: '101 - 250 employees',
     website: 'www.logiswift.com',
@@ -365,16 +377,38 @@ final List<UserManagementData> mockUsers = [
 ];
 
 List<SummaryCardData> getCompanyActivationSummary() {
-  final pending = mockCompanyActivations.where((c) => c.status == 'Pending').length;
-  final active = mockCompanyActivations.where((c) => c.status == 'Active').length;
-  final rejected = mockCompanyActivations.where((c) => c.status == 'Rejected').length;
+  final pending = mockCompanyActivations
+      .where((c) => c.status == 'Pending')
+      .length;
+  final active = mockCompanyActivations
+      .where((c) => c.status == 'Active')
+      .length;
+  final rejected = mockCompanyActivations
+      .where((c) => c.status == 'Rejected')
+      .length;
   final total = mockCompanyActivations.length;
 
   return [
-    SummaryCardData(title: 'Pending Activation', number: '$pending', subTitle: 'Requires your review'),
-    SummaryCardData(title: 'Active Companies', number: '$active', subTitle: 'Activated companies'),
-    SummaryCardData(title: 'Rejected', number: '$rejected', subTitle: 'Rejected companies'),
-    SummaryCardData(title: 'Total companies', number: '$total', subTitle: 'All companies'),
+    SummaryCardData(
+      title: 'Pending Activation',
+      number: '$pending',
+      subTitle: 'Requires your review',
+    ),
+    SummaryCardData(
+      title: 'Active Companies',
+      number: '$active',
+      subTitle: 'Activated companies',
+    ),
+    SummaryCardData(
+      title: 'Rejected',
+      number: '$rejected',
+      subTitle: 'Rejected companies',
+    ),
+    SummaryCardData(
+      title: 'Total companies',
+      number: '$total',
+      subTitle: 'All companies',
+    ),
   ];
 }
 
@@ -385,10 +419,26 @@ List<SummaryCardData> getUserManagementSummary() {
   final employers = mockUsers.where((u) => u.isCompany).length;
 
   return [
-    SummaryCardData(title: 'Total Users', number: '$total', subTitle: '+12% From last week'),
-    SummaryCardData(title: 'Active Users', number: '$active', subTitle: '+8.1% From last week'),
-    SummaryCardData(title: 'Candidates', number: '$candidates', subTitle: '+85.5% From last week'),
-    SummaryCardData(title: 'Employers', number: '$employers', subTitle: '+8.1% From last week'),
+    SummaryCardData(
+      title: 'Total Users',
+      number: '$total',
+      subTitle: '+12% From last week',
+    ),
+    SummaryCardData(
+      title: 'Active Users',
+      number: '$active',
+      subTitle: '+8.1% From last week',
+    ),
+    SummaryCardData(
+      title: 'Candidates',
+      number: '$candidates',
+      subTitle: '+85.5% From last week',
+    ),
+    SummaryCardData(
+      title: 'Employers',
+      number: '$employers',
+      subTitle: '+8.1% From last week',
+    ),
   ];
 }
 
@@ -508,7 +558,12 @@ final List<Job> mockJobs = [
     salary: r'$1000 - $1500',
     education: "Bachelor's",
     location: 'Cairo, Egypt',
-    skills: ['Digital Marketing', 'Social Media', 'Analytics', 'Content Strategy'],
+    skills: [
+      'Digital Marketing',
+      'Social Media',
+      'Analytics',
+      'Content Strategy',
+    ],
   ),
   Job(
     companyName: 'Finance Pro',
@@ -534,7 +589,12 @@ final List<Job> mockJobs = [
     salary: r'$500 - $800',
     education: 'High School',
     location: 'Hurghada, Egypt',
-    skills: ['Customer Service', 'Languages', 'Communication', 'Tourism Knowledge'],
+    skills: [
+      'Customer Service',
+      'Languages',
+      'Communication',
+      'Tourism Knowledge',
+    ],
   ),
   Job(
     companyName: 'Style Studio',
@@ -547,7 +607,12 @@ final List<Job> mockJobs = [
     salary: r'$900 - $1400',
     education: "Bachelor's",
     location: 'Cairo, Egypt',
-    skills: ['Fashion Design', 'Adobe Illustrator', 'Pattern Making', 'Textile Knowledge'],
+    skills: [
+      'Fashion Design',
+      'Adobe Illustrator',
+      'Pattern Making',
+      'Textile Knowledge',
+    ],
   ),
   Job(
     companyName: 'BuildIt',
@@ -560,7 +625,12 @@ final List<Job> mockJobs = [
     salary: r'$2500 - $4000',
     education: "Bachelor's",
     location: 'Giza, Egypt',
-    skills: ['AutoCAD', 'Structural Analysis', 'Project Management', 'Construction'],
+    skills: [
+      'AutoCAD',
+      'Structural Analysis',
+      'Project Management',
+      'Construction',
+    ],
   ),
   Job(
     companyName: 'CloudNine',
@@ -586,7 +656,12 @@ final List<Job> mockJobs = [
     salary: r'$700 - $1000',
     education: 'Diploma',
     location: 'Cairo, Egypt',
-    skills: ['Premiere Pro', 'After Effects', 'DaVinci Resolve', 'Color Grading'],
+    skills: [
+      'Premiere Pro',
+      'After Effects',
+      'DaVinci Resolve',
+      'Color Grading',
+    ],
   ),
 ];
 
@@ -597,23 +672,57 @@ List<SummaryCardData> getJobManagementSummary() {
   final rejected = mockJobs.where((j) => j.status == 'Rejected').length;
 
   return [
-    SummaryCardData(title: 'Total Jobs', number: '$total', subTitle: '+12% From last week'),
-    SummaryCardData(title: 'Pending Approval', number: '$pending', subTitle: '2% From last week'),
-    SummaryCardData(title: 'Approved', number: '$approved', subTitle: '71% From last week'),
-    SummaryCardData(title: 'Rejected', number: '$rejected', subTitle: '10% From last week'),
+    SummaryCardData(
+      title: 'Total Jobs',
+      number: '$total',
+      subTitle: '+12% From last week',
+    ),
+    SummaryCardData(
+      title: 'Pending Approval',
+      number: '$pending',
+      subTitle: '2% From last week',
+    ),
+    SummaryCardData(
+      title: 'Approved',
+      number: '$approved',
+      subTitle: '71% From last week',
+    ),
+    SummaryCardData(
+      title: 'Rejected',
+      number: '$rejected',
+      subTitle: '10% From last week',
+    ),
   ];
 }
 
 List<SummaryCardData> getOverviewSummary() {
-  final pendingCompanies = mockCompanyActivations.where((c) => c.status == 'Pending').length;
+  final pendingCompanies = mockCompanyActivations
+      .where((c) => c.status == 'Pending')
+      .length;
   final pendingJobs = mockJobs.where((j) => j.status == 'Pending').length;
   final totalJobs = mockJobs.length;
   final totalUsers = mockUsers.length;
 
   return [
-    SummaryCardData(title: 'Activation Company', number: '$pendingCompanies', subTitle: 'Review Account'),
-    SummaryCardData(title: 'Pending Jobs', number: '$pendingJobs', subTitle: 'Review job Queue'),
-    SummaryCardData(title: 'Total Jobs', number: '$totalJobs', subTitle: '+12% From last week'),
-    SummaryCardData(title: 'Total User', number: '$totalUsers', subTitle: '+8.1% From last week'),
+    SummaryCardData(
+      title: 'Activation Company',
+      number: '$pendingCompanies',
+      subTitle: 'Review Account',
+    ),
+    SummaryCardData(
+      title: 'Pending Jobs',
+      number: '$pendingJobs',
+      subTitle: 'Review job Queue',
+    ),
+    SummaryCardData(
+      title: 'Total Jobs',
+      number: '$totalJobs',
+      subTitle: '+12% From last week',
+    ),
+    SummaryCardData(
+      title: 'Total User',
+      number: '$totalUsers',
+      subTitle: '+8.1% From last week',
+    ),
   ];
 }
