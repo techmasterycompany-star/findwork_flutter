@@ -24,14 +24,18 @@ class CandidateProfile extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: const [
-            CandidateHeader(),
-            CandidateOverviewInfo(),
-            CandidateSummary(),
-            CandidateBackground(),
-            CandidateReferences(),
-            CandidateCtaBanner(),
-            Footer(),
+          children: [
+            CandidateHeader(
+              onContact: () {},
+              onSave: () {},
+              onDownloadCv: () {},
+            ),
+            const CandidateOverviewInfo(),
+            const CandidateSummary(),
+            const CandidateBackground(),
+            const CandidateReferences(),
+            const CandidateCtaBanner(),
+            const Footer(),
           ],
         ),
       ),
