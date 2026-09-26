@@ -1,5 +1,6 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,27 +53,12 @@ class EmployerCtaCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 24.h),
-          SizedBox(
-            width: double.infinity,
+          CustomButton(
+            text: 'Start a conversation',
+            variant: CustomButtonVariant.primary,
             height: 40.h,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary600,
-                foregroundColor: AppColors.white,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-              ),
-              child: Text(
-                'Start a conversation',
-                style: AppTypography.smallText.copyWith(
-                  color: AppColors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+            width: double.infinity,
+            onPressed: () {},
           ),
         ],
       ),

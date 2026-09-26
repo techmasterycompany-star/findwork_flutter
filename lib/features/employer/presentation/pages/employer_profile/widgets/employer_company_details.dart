@@ -1,5 +1,8 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/detail_row.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/section_label.dart';
+import 'package:findwork_flutter/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +22,7 @@ class EmployerCompanyDetails extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const _SectionLabel(label: '02 / Company details'),
+                  const SectionLabel(label: '02 / Company details'),
                   SizedBox(height: 8.h),
                   Text(
                     'Built for meaningful work.',
@@ -28,23 +31,13 @@ class EmployerCompanyDetails extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              TextButton(
+              CustomButton(
+                text: 'Full profile',
+                variant: CustomButtonVariant.outlined,
+                height: 32.h,
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                fontSize: 12.sp,
                 onPressed: () {},
-                style: TextButton.styleFrom(
-                  foregroundColor: AppColors.primary600,
-                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.r),
-                    side: const BorderSide(color: AppColors.primary200),
-                  ),
-                ),
-                child: Text(
-                  'Full profile',
-                  style: AppTypography.smallText.copyWith(
-                    color: AppColors.primary600,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
               ),
             ],
           ),
@@ -64,31 +57,31 @@ class EmployerCompanyDetails extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const _DetailRow(
+                const DetailRow(
                   icon: Icons.business_center_outlined,
                   label: 'Industry',
                   value: 'Design & Creative Services',
                 ),
                 Divider(color: AppColors.neutral100, height: 24.h),
-                const _DetailRow(
+                const DetailRow(
                   icon: Icons.people_outline_rounded,
                   label: 'Company size',
                   value: '2–10 employees',
                 ),
                 Divider(color: AppColors.neutral100, height: 24.h),
-                const _DetailRow(
+                const DetailRow(
                   icon: Icons.flag_outlined,
                   label: 'Founded',
                   value: '2016',
                 ),
                 Divider(color: AppColors.neutral100, height: 24.h),
-                const _DetailRow(
+                const DetailRow(
                   icon: Icons.language_rounded,
                   label: 'Language',
                   value: 'English, Danish',
                 ),
                 Divider(color: AppColors.neutral100, height: 24.h),
-                const _DetailRow(
+                const DetailRow(
                   icon: Icons.location_city_outlined,
                   label: 'Headquarters',
                   value: 'Copenhagen, Denmark',
@@ -101,63 +94,3 @@ class EmployerCompanyDetails extends StatelessWidget {
     );
   }
 }
-
-class _SectionLabel extends StatelessWidget {
-  final String label;
-
-  const _SectionLabel({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-      decoration: BoxDecoration(
-        color: AppColors.neutral100,
-        borderRadius: BorderRadius.circular(4.r),
-      ),
-      child: Text(
-        label,
-        style: AppTypography.caption.copyWith(
-          fontWeight: FontWeight.w600,
-          color: AppColors.neutral600,
-        ),
-      ),
-    );
-  }
-}
-
-class _DetailRow extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String value;
-
-  const _DetailRow({
-    required this.icon,
-    required this.label,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(icon, size: 18.sp, color: AppColors.neutral400),
-        SizedBox(width: 10.w),
-        Expanded(
-          child: Text(
-            label,
-            style: AppTypography.smallText.copyWith(color: AppColors.neutral500),
-          ),
-        ),
-        Text(
-          value,
-          style: AppTypography.smallText.copyWith(
-            fontWeight: FontWeight.w600,
-            color: AppColors.neutral900,
-          ),
-        ),
-      ],
-    );
-  }
-}
-

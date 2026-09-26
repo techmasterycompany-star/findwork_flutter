@@ -10,7 +10,7 @@ import 'widgets/employer_job_info_card.dart';
 import 'widgets/employer_profile_cover.dart';
 import 'widgets/employer_profile_header.dart';
 import 'widgets/employer_reviews_section.dart';
-import 'widgets/employer_top_bar.dart';
+import '../../../../../core/utils/employers_utils/employer_top_bar.dart';
 import 'widgets/employer_track_record.dart';
 
 class EmployerProfile extends StatelessWidget {
@@ -20,7 +20,7 @@ class EmployerProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.neutral100,
-      appBar: const EmployerTopBar(),
+      appBar: EmployerTopBar(darkmode: () { }, languge: () {  }, notification: () {  }, menu: () {  },),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'employer_active_job_card.dart';
@@ -42,23 +43,13 @@ class EmployerActiveJobsSection extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              TextButton(
+              CustomButton(
+                text: 'View all',
+                variant: CustomButtonVariant.outlined,
+                height: 32.h,
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                fontSize: 12.sp,
                 onPressed: () {},
-                style: TextButton.styleFrom(
-                  foregroundColor: AppColors.primary600,
-                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.r),
-                    side: const BorderSide(color: AppColors.primary200),
-                  ),
-                ),
-                child: Text(
-                  'View all',
-                  style: AppTypography.smallText.copyWith(
-                    color: AppColors.primary600,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
               ),
             ],
           ),

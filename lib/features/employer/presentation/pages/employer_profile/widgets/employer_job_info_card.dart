@@ -1,5 +1,7 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/star_row.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/stat_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +51,7 @@ class EmployerJobInfoCard extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 8.w),
-              const _StarRow(rating: 4.9),
+              const StarRow(rating: 4.9),
               SizedBox(width: 8.w),
               Text(
                 'Exceptional',
@@ -60,28 +62,28 @@ class EmployerJobInfoCard extends StatelessWidget {
           SizedBox(height: 24.h),
           const Divider(color: AppColors.neutral200, height: 1),
           SizedBox(height: 24.h),
-          const _StatRow(
+          const StatRow(
             icon: Icons.check_circle_outline_rounded,
             iconColor: AppColors.success500,
             label: 'Payment verified',
             value: '100%',
           ),
           SizedBox(height: 20.h),
-          const _StatRow(
+          const StatRow(
             icon: Icons.check_circle_outline_rounded,
             iconColor: AppColors.success500,
             label: 'Response rate',
             value: '98%',
           ),
           SizedBox(height: 20.h),
-          const _StatRow(
+          const StatRow(
             icon: Icons.access_time_rounded,
             iconColor: AppColors.primary500,
             label: 'Avg. response time',
             value: 'Within 4 hrs',
           ),
           SizedBox(height: 20.h),
-          const _StatRow(
+          const StatRow(
             icon: Icons.work_outline_rounded,
             iconColor: AppColors.primary500,
             label: 'Repeat hire rate',
@@ -115,63 +117,3 @@ class EmployerJobInfoCard extends StatelessWidget {
     );
   }
 }
-
-class _StarRow extends StatelessWidget {
-  final double rating;
-
-  const _StarRow({required this.rating});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (index) {
-        final fill = (rating - index).clamp(0.0, 1.0);
-        return Icon(
-          fill >= 1.0
-              ? Icons.star_rounded
-              : fill > 0
-                  ? Icons.star_half_rounded
-                  : Icons.star_border_rounded,
-          color: AppColors.warning400,
-          size: 18.sp,
-        );
-      }),
-    );
-  }
-}
-
-class _StatRow extends StatelessWidget {
-  final IconData icon;
-  final Color iconColor;
-  final String label;
-  final String value;
-
-  const _StatRow({
-    required this.icon,
-    required this.iconColor,
-    required this.label,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(icon, size: 20.sp, color: iconColor),
-        SizedBox(width: 10.w),
-        Expanded(
-          child: Text(label, style: AppTypography.smallText),
-        ),
-        Text(
-          value,
-          style: AppTypography.smallText.copyWith(
-            fontWeight: FontWeight.w600,
-            color: AppColors.neutral900,
-          ),
-        ),
-      ],
-    );
-  }
-}
-

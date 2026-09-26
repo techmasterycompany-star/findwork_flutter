@@ -1,8 +1,9 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/homepage_employer/verified_badge.dart';
+import 'package:findwork_flutter/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class EmployerProfileHeader extends StatelessWidget {
   const EmployerProfileHeader({super.key});
@@ -59,7 +60,7 @@ class EmployerProfileHeader extends StatelessWidget {
                 style: AppTypography.cardTitle,
               ),
               SizedBox(width: 12.w),
-              const _VerifiedBadge(),
+              const VerifiedBadge(),
             ],
           ),
           SizedBox(height: 8.h),
@@ -98,20 +99,20 @@ class EmployerProfileHeader extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: _ActionButton(
-                  label: 'Contact',
+                child: CustomButton(
+                  text: 'Contact',
                   icon: Icons.mail_outline_rounded,
-                  isPrimary: true,
-                  onTap: () {},
+                  variant: CustomButtonVariant.primary,
+                  onPressed: () {},
                 ),
               ),
               SizedBox(width: 12.w),
               Expanded(
-                child: _ActionButton(
-                  label: 'View job',
+                child: CustomButton(
+                  text: 'View job',
                   icon: Icons.work_outline_rounded,
-                  isPrimary: false,
-                  onTap: () {},
+                  variant: CustomButtonVariant.outlined,
+                  onPressed: () {},
                 ),
               ),
               SizedBox(width: 12.w),
@@ -139,73 +140,3 @@ class EmployerProfileHeader extends StatelessWidget {
     );
   }
 }
-
-class _VerifiedBadge extends StatelessWidget {
-  const _VerifiedBadge();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-      decoration: BoxDecoration(
-        color: AppColors.primary50,
-        borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(color: AppColors.primary200),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.verified_user_outlined, size: 14.sp, color: AppColors.primary600),
-          SizedBox(width: 4.w),
-          Text(
-            'Verified employer',
-            style: AppTypography.caption.copyWith(
-              color: AppColors.primary600,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _ActionButton extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final bool isPrimary;
-  final VoidCallback onTap;
-
-  const _ActionButton({
-    required this.label,
-    required this.icon,
-    required this.isPrimary,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40.h,
-      child: ElevatedButton.icon(
-        onPressed: onTap,
-        icon: Icon(icon, size: 16.sp),
-        label: Text(label),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: isPrimary ? AppColors.primary600 : AppColors.white,
-          foregroundColor: isPrimary ? AppColors.white : AppColors.primary600,
-          elevation: 0,
-          side: isPrimary ? null : const BorderSide(color: AppColors.primary600),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-          textStyle: AppTypography.smallText.copyWith(
-            fontWeight: FontWeight.w600,
-            color: isPrimary ? AppColors.white : AppColors.primary600,
-          ),
-        ),
-      ),
-    );
-  }
-}
-

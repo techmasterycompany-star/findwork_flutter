@@ -1,8 +1,8 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/star_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class EmployerReviewCard extends StatelessWidget {
   final String reviewText;
@@ -41,35 +41,17 @@ class EmployerReviewCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'FIELD NOTE',
-            style: AppTypography.caption.copyWith(
-              letterSpacing: 1.5,
-              fontWeight: FontWeight.w700,
-              color: AppColors.primary500,
-            ),
-          ),
-          SizedBox(height: 12.h),
-          Text(
-            reviewText,
-            style: AppTypography.body.copyWith(
-              color: AppColors.neutral800,
-              height: 1.6,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-          SizedBox(height: 12.h),
           Row(
             children: [
+              StarRow(rating: rating, iconSize: 16.sp),
+              SizedBox(width: 8.w),
               Text(
-                '$rating',
+                rating.toStringAsFixed(1),
                 style: AppTypography.smallText.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.neutral900,
                 ),
               ),
-              SizedBox(width: 6.w),
-              _StarRow(rating: rating),
               const Spacer(),
               Text(
                 date,
@@ -77,46 +59,73 @@ class EmployerReviewCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 8.h),
-          Text(
-            'Project · $projectName',
-            style: AppTypography.caption.copyWith(color: AppColors.neutral500),
+          SizedBox(height: 12.h),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+            decoration: BoxDecoration(
+              color: AppColors.primary50,
+              borderRadius: BorderRadius.circular(4.r),
+            ),
+            child: Text(
+              projectName,
+              style: AppTypography.caption.copyWith(
+                color: AppColors.primary700,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
           SizedBox(height: 16.h),
+          Text(
+            reviewText,
+            style: AppTypography.smallText.copyWith(
+              color: AppColors.neutral700,
+              height: 1.6,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          SizedBox(height: 20.h),
           const Divider(color: AppColors.neutral100, height: 1),
           SizedBox(height: 16.h),
           Row(
             children: [
               CircleAvatar(
-                radius: 20.r,
-                backgroundColor: AppColors.primary200,
+                radius: 18.r,
+                backgroundColor: AppColors.primary100,
                 child: Text(
-                  reviewerName[0],
-                  style: AppTypography.body.copyWith(
-                    color: AppColors.primary700,
+                  reviewerName.isNotEmpty ? reviewerName[0] : '?',
+                  style: AppTypography.smallText.copyWith(
                     fontWeight: FontWeight.bold,
+                    color: AppColors.primary600,
                   ),
                 ),
               ),
               SizedBox(width: 12.w),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      reviewerName,
-                      style: AppTypography.smallText.copyWith(fontWeight: FontWeight.w600),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    reviewerName,
+                    style: AppTypography.smallText.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.neutral900,
                     ),
-                    Text(
-                      reviewerTitle,
-                      style: AppTypography.caption.copyWith(color: AppColors.neutral500),
-                    ),
-                  ],
-                ),
+                  ),
+                  Text(
+                    reviewerTitle,
+                    style: AppTypography.caption.copyWith(color: AppColors.neutral400),
+                  ),
+                ],
               ),
+              const Spacer(),
               IconButton(
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                icon: Icon(
+                  Icons.thumb_up_outlined,
+                  size: 16.sp,
+                  color: AppColors.neutral400,
+                ),
                 onPressed: () {},
-                icon: const Icon(Icons.more_horiz_rounded, color: AppColors.neutral400),
               ),
             ],
           ),
@@ -125,29 +134,3 @@ class EmployerReviewCard extends StatelessWidget {
     );
   }
 }
-
-class _StarRow extends StatelessWidget {
-  final double rating;
-
-  const _StarRow({required this.rating});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (index) {
-        final fill = (rating - index).clamp(0.0, 1.0);
-        return Icon(
-          fill >= 1.0
-              ? Icons.star_rounded
-              : fill > 0
-                  ? Icons.star_half_rounded
-                  : Icons.star_border_rounded,
-          color: AppColors.warning400,
-          size: 16.sp,
-        );
-      }),
-    );
-  }
-}
-
