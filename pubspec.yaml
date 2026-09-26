@@ -20,6 +20,7 @@ dependencies:
   go_router: ^18.0.1
   flutter_svg: ^2.3.0
   flutter_screenutil: ^5.9.3
+  image_picker: ^1.2.3
 
 dev_dependencies:
 
