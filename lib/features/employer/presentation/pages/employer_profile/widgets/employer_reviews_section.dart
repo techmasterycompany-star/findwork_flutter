@@ -1,5 +1,7 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/section_label.dart';
+import 'package:findwork_flutter/core/utils/employers_utils/employer_profile/star_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +19,7 @@ class EmployerReviewsSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              const _SectionLabel(label: '04 / Field notes'),
+              const SectionLabel(label: '04 / Field notes'),
               const Spacer(),
               Text(
                 'FIELD NOTE / 39',
@@ -49,7 +51,7 @@ class EmployerReviewsSection extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 8.w),
-                      const _StarRow(rating: 4.9),
+                      const StarRow(rating: 4.9, iconSize: 20),
                     ],
                   ),
                   Text(
@@ -86,53 +88,3 @@ class EmployerReviewsSection extends StatelessWidget {
     );
   }
 }
-
-class _SectionLabel extends StatelessWidget {
-  final String label;
-
-  const _SectionLabel({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-      decoration: BoxDecoration(
-        color: AppColors.neutral100,
-        borderRadius: BorderRadius.circular(4.r),
-      ),
-      child: Text(
-        label,
-        style: AppTypography.caption.copyWith(
-          fontWeight: FontWeight.w600,
-          color: AppColors.neutral600,
-        ),
-      ),
-    );
-  }
-}
-
-class _StarRow extends StatelessWidget {
-  final double rating;
-
-  const _StarRow({required this.rating});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (index) {
-        final fill = (rating - index).clamp(0.0, 1.0);
-        return Icon(
-          fill >= 1.0
-              ? Icons.star_rounded
-              : fill > 0
-                  ? Icons.star_half_rounded
-                  : Icons.star_border_rounded,
-          color: AppColors.warning400,
-          size: 20.sp,
-        );
-      }),
-    );
-  }
-}
-

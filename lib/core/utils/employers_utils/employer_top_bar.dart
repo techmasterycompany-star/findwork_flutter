@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EmployerTopBar extends StatelessWidget implements PreferredSizeWidget {
-  const EmployerTopBar({super.key});
+ final void Function() darkmode;
+  final void Function() languge;
+  final void Function() notification;
+  final void Function() menu;
+  const EmployerTopBar({super.key, required this.darkmode, required this.languge, required this.notification, required this.menu});
 
   @override
   Size get preferredSize => Size.fromHeight(56.h);
@@ -33,13 +37,13 @@ class EmployerTopBar extends StatelessWidget implements PreferredSizeWidget {
             color: AppColors.neutral800,
             size: 22.sp,
           ),
-          onPressed: () {},
+          onPressed: darkmode,
         ),
         SizedBox(width: 6.w),
 
         Center(
           child: InkWell(
-            onTap: () {},
+            onTap: languge,
             borderRadius: BorderRadius.circular(4.r),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
@@ -71,7 +75,7 @@ class EmployerTopBar extends StatelessWidget implements PreferredSizeWidget {
             color: AppColors.neutral800,
             size: 24.sp,
           ),
-          onPressed: () {},
+          onPressed: notification,
         ),
 
         IconButton(
@@ -83,7 +87,7 @@ class EmployerTopBar extends StatelessWidget implements PreferredSizeWidget {
             color: AppColors.neutral800,
             size: 26.sp,
           ),
-          onPressed: () {},
+          onPressed: menu,
         ),
         SizedBox(width: 12.w),
       ],
