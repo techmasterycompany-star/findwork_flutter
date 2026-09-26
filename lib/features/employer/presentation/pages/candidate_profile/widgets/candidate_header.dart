@@ -37,10 +37,43 @@ class CandidateHeader extends StatelessWidget {
               height: 140.h,
               width: double.infinity,
               decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/home_page_employer/banner.png'),
-                  fit: BoxFit.cover,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    AppColors.primary900,
+                    AppColors.primary700,
+                    AppColors.primary600,
+                  ],
                 ),
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    right: -20.w,
+                    top: -20.h,
+                    child: Container(
+                      width: 120.w,
+                      height: 120.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.white.withValues(alpha: 0.05),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 40.w,
+                    bottom: -30.h,
+                    child: Container(
+                      width: 160.w,
+                      height: 160.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.white.withValues(alpha: 0.04),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Positioned(
@@ -144,54 +177,62 @@ class CandidateHeader extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: onContact,
+                      onPressed: onContact ?? () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary600,
+                        foregroundColor: AppColors.white,
                         padding: EdgeInsets.symmetric(vertical: 14.h),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.r),
+                          borderRadius: BorderRadius.circular(24.r),
                         ),
                         elevation: 0,
                       ),
-                      child: Text(
-                        'Contact this candidate',
-                        style: AppTypography.smallText.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.white,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'Contact this candidate',
+                          style: AppTypography.smallText.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.white,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(width: 10.w),
-                  OutlinedButton(
-                    onPressed: onSave,
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.all(14.r),
-                      side: const BorderSide(color: AppColors.primary200),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.r),
+                  InkWell(
+                    onTap: onSave,
+                    borderRadius: BorderRadius.circular(12.r),
+                    child: Container(
+                      padding: EdgeInsets.all(12.r),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(12.r),
+                        border: Border.all(color: AppColors.primary200),
                       ),
-                    ),
-                    child: Icon(
-                      Icons.bookmark_outline_rounded,
-                      color: AppColors.primary600,
-                      size: 20.sp,
+                      child: Icon(
+                        Icons.bookmark_outline_rounded,
+                        color: AppColors.primary600,
+                        size: 20.sp,
+                      ),
                     ),
                   ),
                   SizedBox(width: 10.w),
-                  OutlinedButton(
-                    onPressed: onDownloadCv,
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.all(14.r),
-                      side: const BorderSide(color: AppColors.primary200),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.r),
+                  InkWell(
+                    onTap: onDownloadCv,
+                    borderRadius: BorderRadius.circular(12.r),
+                    child: Container(
+                      padding: EdgeInsets.all(12.r),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(12.r),
+                        border: Border.all(color: AppColors.primary200),
                       ),
-                    ),
-                    child: Icon(
-                      Icons.download_rounded,
-                      color: AppColors.primary600,
-                      size: 20.sp,
+                      child: Icon(
+                        Icons.download_rounded,
+                        color: AppColors.primary600,
+                        size: 20.sp,
+                      ),
                     ),
                   ),
                 ],
