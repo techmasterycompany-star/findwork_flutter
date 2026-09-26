@@ -2,6 +2,7 @@ import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import 'widgets/post_job_bottom_bar.dart';
 import 'widgets/post_job_dropdown.dart';
@@ -55,7 +56,7 @@ class PostJobStep1ScreenState extends State<PostJobStep1Screen> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, color: AppColors.neutral700, size: 22.sp),
-          onPressed: () => Navigator.of(context).maybePop(),
+          onPressed: () => context.pop(),
         ),
         titleSpacing: 0,
         title: Image.asset(
@@ -178,8 +179,8 @@ class PostJobStep1ScreenState extends State<PostJobStep1Screen> {
             ),
           ),
           PostJobBottomBar(
-            onCancel: () => Navigator.of(context).maybePop(),
-            onContinue: () {},
+            onCancel: () => context.pop(),
+            onContinue: () => context.push('/PostJobStep2'),
           ),
         ],
       ),

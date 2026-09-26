@@ -10,10 +10,11 @@ import 'package:findwork_flutter/features/employer/presentation/pages/post_job/s
 import 'package:findwork_flutter/features/employer/presentation/pages/post_job/step5/post_job_step5_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/employer_settings/employer_settings_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/company_profile_settings/company_profile_settings_screen.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/applicants/applicants_screen.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: '/CompanyProfileSettings',
+  initialLocation: '/Applicants',
   routes: [
     GoRoute(
       path: '/CandidateProfile',
@@ -62,6 +63,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/CompanyProfileSettings',
       builder: (context, state) => const CompanyProfileSettingsScreen(),
+    ),
+    GoRoute(
+      path: '/Applicants',
+      builder: (context, state) => const ApplicantsScreen(),
     ),
   ],
 );
