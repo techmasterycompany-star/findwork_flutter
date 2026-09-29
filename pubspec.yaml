@@ -30,8 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: null
-  flutter_bloc: null
+  flutter_svg: 
+  flutter_bloc: 
+  number_pagination:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
@@ -72,7 +73,17 @@ flutter:
     - asset/images/avatar-circle.png
     - asset/images/image1.png
     - asset/images/image-cmpony.png
-  #   - images/a_dot_ham.jpeg
+    - asset/images/image2.png
+    - asset/images/image3.png
+    - asset/images/profile_image.png
+    - asset/images/profile-image2.png
+    - asset/images/back-image.png
+    - asset/images/office.png
+    - asset/images/back-office.png
+    - asset/images/user1.png
+    - asset/images/user2.png
+    - asset/images/user3.png
+    - asset/images/user4.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding asset from package dependencies, see

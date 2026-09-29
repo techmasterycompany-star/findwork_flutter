@@ -26,10 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "Designer": MessageLookupByLibrary.simpleMessage("Designer"),
     "Developer": MessageLookupByLibrary.simpleMessage("Developer"),
     "Financial": MessageLookupByLibrary.simpleMessage("Financial Analyst"),
+    "FindJobs": MessageLookupByLibrary.simpleMessage("Find Jobs"),
     "Fullstack": MessageLookupByLibrary.simpleMessage("Fullstack"),
+    "Home": MessageLookupByLibrary.simpleMessage("Home"),
     "Job4U": MessageLookupByLibrary.simpleMessage(
       "© 2026 Job4U. All rights reserved.",
     ),
+    "JobDetails": MessageLookupByLibrary.simpleMessage("Job Details"),
     "Popular": MessageLookupByLibrary.simpleMessage("Popular Searches:"),
     "TeamLeader": MessageLookupByLibrary.simpleMessage("Team Leader"),
     "View": MessageLookupByLibrary.simpleMessage("View Interview Prep"),
@@ -39,9 +42,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "appliedTime1": MessageLookupByLibrary.simpleMessage("Applied 3 days ago"),
     "appliedTime2": MessageLookupByLibrary.simpleMessage("Applied 2 weeks ago"),
     "appliedTime3": MessageLookupByLibrary.simpleMessage("Applied 1 weeks ago"),
+    "applyThisJob": MessageLookupByLibrary.simpleMessage("Apply This Job"),
     "browseAllCompanies": MessageLookupByLibrary.simpleMessage(
       "Browse All Companies →",
     ),
+    "canada": MessageLookupByLibrary.simpleMessage("Canada"),
     "cancelAnytime": MessageLookupByLibrary.simpleMessage("Cancel anytime"),
     "category1": MessageLookupByLibrary.simpleMessage("GUIDES"),
     "category2": MessageLookupByLibrary.simpleMessage("PORTFOLIO"),
@@ -80,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "freelanceCareerDescription": MessageLookupByLibrary.simpleMessage(
       "Expert insights and high-demand trending skills to level up your work.",
     ),
+    "fullTime": MessageLookupByLibrary.simpleMessage("Full-Time"),
     "getPlacedInFront": MessageLookupByLibrary.simpleMessage(
       "Get placed in front of\nverified remote\nemployers",
     ),
@@ -93,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "High Demand Skills",
     ),
     "howWorks": MessageLookupByLibrary.simpleMessage("How Job4U Works"),
+    "hybrid": MessageLookupByLibrary.simpleMessage("Hybrid"),
     "imageUrl": MessageLookupByLibrary.simpleMessage(
       "asset/images/user-avatar.png",
     ),
@@ -137,6 +144,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "location2": MessageLookupByLibrary.simpleMessage("Canada"),
     "name": MessageLookupByLibrary.simpleMessage("Jonathan Doe"),
     "noSpamEver": MessageLookupByLibrary.simpleMessage("No spam, ever"),
+    "oneHourAgo": MessageLookupByLibrary.simpleMessage("1 hour ago"),
+    "overview": MessageLookupByLibrary.simpleMessage("Overview"),
     "postedTime": MessageLookupByLibrary.simpleMessage("1 hour ago"),
     "postedTime2": MessageLookupByLibrary.simpleMessage("1 hour ago"),
     "proCandidatesDescription": MessageLookupByLibrary.simpleMessage(
@@ -150,6 +159,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "View all 24 recommendations → ",
     ),
     "search": MessageLookupByLibrary.simpleMessage("Job title"),
+    "seniorUxDesignerDescription": MessageLookupByLibrary.simpleMessage(
+      "A Senior UX Designer is a pivotal member of product development teams, responsible for ensuring that digital products and applications provide users with intuitive, efficient, and enjoyable interactions.",
+    ),
     "skillName1": MessageLookupByLibrary.simpleMessage("Tailwind CSS"),
     "skillName2": MessageLookupByLibrary.simpleMessage("TypeScript"),
     "skillName3": MessageLookupByLibrary.simpleMessage("Next.js Framework"),
@@ -160,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "step2": MessageLookupByLibrary.simpleMessage("Step 02"),
     "step3": MessageLookupByLibrary.simpleMessage("Step 03"),
     "step4": MessageLookupByLibrary.simpleMessage("Step 04"),
+    "techCompany": MessageLookupByLibrary.simpleMessage("Tech Company"),
     "title": MessageLookupByLibrary.simpleMessage("Senior UI/UX Designer"),
     "title1": MessageLookupByLibrary.simpleMessage(
       "How to negotiate freelance rates with corporate clients",
@@ -190,6 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "typeJob": MessageLookupByLibrary.simpleMessage("Full-Time"),
     "typeJob2": MessageLookupByLibrary.simpleMessage("Part-Time"),
+    "uiUxDesigner": MessageLookupByLibrary.simpleMessage("UI/UX Designer"),
     "upgradeToPremium": MessageLookupByLibrary.simpleMessage(
       "Upgrade to Premium - \$9/mo",
     ),

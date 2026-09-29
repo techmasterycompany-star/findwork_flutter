@@ -939,6 +939,86 @@ class S {
   String get jobs {
     return Intl.message('jobs', name: 'jobs', desc: '', args: []);
   }
+
+  /// `Home`
+  String get Home {
+    return Intl.message('Home', name: 'Home', desc: '', args: []);
+  }
+
+  /// `Find Jobs`
+  String get FindJobs {
+    return Intl.message('Find Jobs', name: 'FindJobs', desc: '', args: []);
+  }
+
+  /// `Job Details`
+  String get JobDetails {
+    return Intl.message('Job Details', name: 'JobDetails', desc: '', args: []);
+  }
+
+  /// `UI/UX Designer`
+  String get uiUxDesigner {
+    return Intl.message(
+      'UI/UX Designer',
+      name: 'uiUxDesigner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tech Company`
+  String get techCompany {
+    return Intl.message(
+      'Tech Company',
+      name: 'techCompany',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Canada`
+  String get canada {
+    return Intl.message('Canada', name: 'canada', desc: '', args: []);
+  }
+
+  /// `1 hour ago`
+  String get oneHourAgo {
+    return Intl.message('1 hour ago', name: 'oneHourAgo', desc: '', args: []);
+  }
+
+  /// `Full-Time`
+  String get fullTime {
+    return Intl.message('Full-Time', name: 'fullTime', desc: '', args: []);
+  }
+
+  /// `Hybrid`
+  String get hybrid {
+    return Intl.message('Hybrid', name: 'hybrid', desc: '', args: []);
+  }
+
+  /// `Apply This Job`
+  String get applyThisJob {
+    return Intl.message(
+      'Apply This Job',
+      name: 'applyThisJob',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overview`
+  String get overview {
+    return Intl.message('Overview', name: 'overview', desc: '', args: []);
+  }
+
+  /// `A Senior UX Designer is a pivotal member of product development teams, responsible for ensuring that digital products and applications provide users with intuitive, efficient, and enjoyable interactions.`
+  String get seniorUxDesignerDescription {
+    return Intl.message(
+      'A Senior UX Designer is a pivotal member of product development teams, responsible for ensuring that digital products and applications provide users with intuitive, efficient, and enjoyable interactions.',
+      name: 'seniorUxDesignerDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

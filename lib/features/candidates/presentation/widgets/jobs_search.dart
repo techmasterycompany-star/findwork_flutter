@@ -1,4 +1,3 @@
-import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class JobsSearch extends StatelessWidget {
@@ -20,19 +19,17 @@ class JobsSearch extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        contentPadding:
-            padding ?? EdgeInsets.symmetric(horizontal: 3, vertical: 3),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.gray200),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primary500),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        hintStyle: Theme.of(context).textTheme.bodySmall,
+        isDense: true,
+        contentPadding: padding ?? const EdgeInsets.symmetric(vertical: 8),
+        enabledBorder: InputBorder.none, // إزالة الحواف لتعتمد على CustomCard
+        focusedBorder: InputBorder.none,
+        border: InputBorder.none,
+        hintStyle: Theme.of(
+          context,
+        ).textTheme.bodySmall?.copyWith(color: Colors.grey),
         hintText: hintText,
         prefixIcon: prefixIcon,
+        prefixIconConstraints: const BoxConstraints(minWidth: 32, minHeight: 0),
       ),
     );
   }

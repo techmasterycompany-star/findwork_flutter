@@ -1,4 +1,5 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
+import 'package:findwork_flutter/core/constants/app_spacing.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/active_jobs_badge.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/custom_card.dart';
 import 'package:findwork_flutter/generated/l10n.dart';
@@ -12,12 +13,14 @@ class JobCard extends StatelessWidget {
   final String location;
   final String salary;
   final String postedTime;
+  final String? jobDetails;
 
   final VoidCallback? onDetails;
   final VoidCallback? onBookmark;
-  final String jobDescription;
+  final String? jobDescription;
   final String typeJob;
   final String jobplace;
+  final bool? boolBorder;
 
   const JobCard({
     super.key,
@@ -27,18 +30,20 @@ class JobCard extends StatelessWidget {
     required this.location,
     required this.salary,
     required this.postedTime,
+    this.jobDetails,
     this.onDetails,
     this.onBookmark,
-    required this.jobDescription,
+    this.jobDescription,
     required this.typeJob,
     required this.jobplace,
+    this.boolBorder = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomCard(
       padding: const EdgeInsets.all(20),
-      border: BorderSide(color: Colors.grey.shade200),
+      border: boolBorder == true ? BorderSide(color: AppColors.gray200) : null,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -65,7 +70,7 @@ class JobCard extends StatelessWidget {
             ],
           ),
 
-          const SizedBox(height: 8),
+          AppSpacing.vertical8,
 
           Row(
             children: [
@@ -82,53 +87,73 @@ class JobCard extends StatelessWidget {
 
               const SizedBox(width: 10),
 
-              Text(company, style: Theme.of(context).textTheme.bodyMedium),
+              Column(
+                children: [
+                  Text(company, style: Theme.of(context).textTheme.bodyMedium),
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Row(
+                      children: [
+                        ActiveJobsBadge(
+                          circular: 4,
+                          text: typeJob,
+                          backGround: AppColors.primary50,
+                          textStyle: TextStyle(
+                            color: AppColors.primary500,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+
+                        AppSpacing.horizontal8,
+
+                        ActiveJobsBadge(
+                          circular: 4,
+                          text: jobplace,
+                          backGround: AppColors.success50,
+                          textStyle: TextStyle(
+                            color: AppColors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
 
-          const SizedBox(height: 8),
+          AppSpacing.vertical8,
+
+          jobDescription != null ? AppSpacing.vertical12 : Container(),
+
+          Text(
+            jobDescription ?? '',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          jobDescription != null ? AppSpacing.vertical12 : Container(),
 
           Row(
             children: [
-              ActiveJobsBadge(
-                circular: 4,
-                text: typeJob,
-                backGround: AppColors.primary50,
-                textStyle: TextStyle(
-                  color: AppColors.primary500,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+              Icon(
+                Icons.location_on_outlined,
+                size: 16,
+                color: AppColors.primary500,
               ),
-
-              const SizedBox(width: 8),
-
-              ActiveJobsBadge(
-                circular: 4,
-                text: jobplace,
-                backGround: AppColors.success50,
-                textStyle: TextStyle(
-                  color: AppColors.black,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+              Text(location, style: Theme.of(context).textTheme.bodySmall),
+              AppSpacing.horizontal24,
+              Icon(
+                Icons.monetization_on_outlined,
+                size: 16,
+                color: AppColors.primary500,
               ),
+              Text(salary, style: Theme.of(context).textTheme.bodySmall),
             ],
           ),
 
-          const SizedBox(height: 16),
-
-          Text(jobDescription),
-          const SizedBox(height: 12),
-
-          Row(
-            children: [
-              Expanded(child: Text("📍 $location")),
-              Expanded(child: Text("💰 $salary")),
-            ],
-          ),
-
-          const SizedBox(height: 14),
+          AppSpacing.vertical12,
 
           Row(
             children: [
@@ -136,7 +161,7 @@ class JobCard extends StatelessWidget {
                 child: ActiveJobsBadge(
                   height: 40,
                   circular: 12,
-                  text: S.of(context).jobDetails,
+                  text: jobDetails ?? S.of(context).jobDetails,
                   onPressed: onDetails,
                   backGround: AppColors.primary700,
                   textStyle: TextStyle(
@@ -153,10 +178,6 @@ class JobCard extends StatelessWidget {
                   'asset/icons/detsils.svg',
                   width: 40,
                   height: 40,
-                  // colorFilter: ColorFilter.mode(
-                  //   Theme.of(context).colorScheme.onSurface,
-                  //   BlendMode.srcIn,
-                  // ),
                 ),
               ),
             ],

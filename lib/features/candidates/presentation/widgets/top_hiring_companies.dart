@@ -98,7 +98,7 @@ class TopHiringCompanies extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
-                const SizedBox(width: 24),
+                AppSpacing.horizontal24,
 
                 SvgPicture.asset(
                   'asset/icons/job-icon.svg',

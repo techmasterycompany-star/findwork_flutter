@@ -31,7 +31,7 @@ class ActiveJobsBadge extends StatelessWidget {
       borderRadius: BorderRadius.circular(circular ?? 20),
       child: Container(
         height: height ?? 28,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
           color: backGround ?? AppColors.primary100,
           borderRadius: BorderRadius.circular(circular ?? 20),

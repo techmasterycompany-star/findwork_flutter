@@ -1,10 +1,14 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/constants/app_spacing.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/find_job_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/job_details.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/list_companies.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/active_jobs_badge.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/app_footer.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/candidate_how_it_works.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/candidate_profile_card.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/career_guides_section.dart';
+import 'package:findwork_flutter/features/candidates/presentation/widgets/custom_card.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/high_demand_skills_card.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/job_card.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/jobs_search.dart';
@@ -28,19 +32,22 @@ class _CandidateHomeState extends State<CandidateHome> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: CustomAppBar(),
+
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              AppSpacing.horizontal12,
               ActiveJobsBadge(
                 jobsCount: "12,800",
                 text: S.of(context).Active,
                 textStyle: TextStyle(color: AppColors.primary600),
                 showDot: true,
               ),
-              SizedBox(height: 24),
+              AppSpacing.vertical12,
+              AppSpacing.horizontal24,
               Text(
                 S.of(context).Welcome,
                 style: Theme.of(context).textTheme.displaySmall,
@@ -51,9 +58,9 @@ class _CandidateHomeState extends State<CandidateHome> {
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               AppSpacing.vertical12,
-              SizedBox(
-                height: 40,
-                width: 382,
+              CustomCard(
+                backgroundColor: AppColors.gray50,
+                border: BorderSide(color: AppColors.gray400),
                 child: JobsSearch(
                   hintText: S.of(context).search,
                   prefixIcon: Icon(
@@ -164,7 +171,12 @@ class _CandidateHomeState extends State<CandidateHome> {
                 typeJob: S.of(context).typeJob,
                 jobplace: S.of(context).jobplace,
                 jobDescription: S.of(context).jobDescription,
-                onDetails: () {},
+                onDetails: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const JobDetails()),
+                  );
+                },
                 onBookmark: () {},
               ),
               AppSpacing.vertical32,
@@ -178,14 +190,26 @@ class _CandidateHomeState extends State<CandidateHome> {
                 typeJob: S.of(context).typeJob2,
                 jobplace: S.of(context).jobplace2,
                 jobDescription: S.of(context).jobDescription2,
-                onDetails: () {},
+                onDetails: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const JobDetails()),
+                  );
+                },
                 onBookmark: () {},
               ),
               AppSpacing.vertical24,
               Center(
                 child: ActiveJobsBadge(
                   backGround: Theme.of(context).colorScheme.surface,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FindJobScreen(),
+                      ),
+                    );
+                  },
                   text: S.of(context).recommendations,
                   textStyle: TextStyle(
                     color: AppColors.primary700,
@@ -197,7 +221,6 @@ class _CandidateHomeState extends State<CandidateHome> {
 
               AppSpacing.vertical24,
 
-              // How Job4U Works + Active Applications
               CandidateHowItWorks(
                 onCreateAccount: () {
                   // TODO
@@ -253,7 +276,14 @@ class _CandidateHomeState extends State<CandidateHome> {
               Center(
                 child: ActiveJobsBadge(
                   backGround: Theme.of(context).colorScheme.surface,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ListCompaniesScreen(),
+                      ),
+                    );
+                  },
                   text: S.of(context).browseAllCompanies,
                   textStyle: TextStyle(
                     color: AppColors.primary700,

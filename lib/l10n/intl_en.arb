@@ -120,5 +120,17 @@
     "browseAllCompanies": "Browse All Companies →",
     "jobsOpen": "Jobs open",
     "employees": "Employees",
-    "jobs":"jobs"
+    "jobs":"jobs",
+    "Home": "Home",
+    "FindJobs": "Find Jobs",
+    "JobDetails": "Job Details",
+    "uiUxDesigner": "UI/UX Designer",
+    "techCompany": "Tech Company",
+    "canada": "Canada",
+    "oneHourAgo": "1 hour ago",
+    "fullTime": "Full-Time",
+    "hybrid": "Hybrid",
+    "applyThisJob": "Apply This Job",
+    "overview": "Overview",
+    "seniorUxDesignerDescription": "A Senior UX Designer is a pivotal member of product development teams, responsible for ensuring that digital products and applications provide users with intuitive, efficient, and enjoyable interactions."
 }
