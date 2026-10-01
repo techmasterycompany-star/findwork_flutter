@@ -249,17 +249,20 @@ class ApplicantsScreenState extends State<ApplicantsScreen> {
                       ),
                     )
                   else
-                    ...filtered.map((applicant) => ApplicantCard(
-                          name: applicant['name'] as String,
-                          jobTitle: applicant['jobTitle'] as String,
-                          location: applicant['location'] as String,
-                          experience: applicant['experience'] as String,
-                          matchScore: applicant['matchScore'] as double,
-                          status: applicant['status'] as String,
-                          skills: List<String>.from(applicant['skills'] as List),
-                          appliedDate: applicant['appliedDate'] as String,
-                          onViewProfile: () {},
-                          onShortlist: () {},
+                    ...filtered.map((applicant) => InkWell(
+                          onTap: () => context.push('/ApplicationDetails'),
+                          child: ApplicantCard(
+                            name: applicant['name'] as String,
+                            jobTitle: applicant['jobTitle'] as String,
+                            location: applicant['location'] as String,
+                            experience: applicant['experience'] as String,
+                            matchScore: applicant['matchScore'] as double,
+                            status: applicant['status'] as String,
+                            skills: List<String>.from(applicant['skills'] as List),
+                            appliedDate: applicant['appliedDate'] as String,
+                            onViewProfile: () => context.push('/ApplicationDetails'),
+                            onShortlist: () {},
+                          ),
                         )),
                 ],
               ),
