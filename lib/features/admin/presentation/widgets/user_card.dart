@@ -76,14 +76,14 @@ class UserCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: isActive ? AppColors.success50 : AppColors.error50,
+                  color: isActive ? AppColors.success200 : AppColors.error200,
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
                   user.status,
-                  style: textTheme.bodySmall?.copyWith(
+                  style: textTheme.bodyMedium?.copyWith(
                     color: isActive ? AppColors.success600 : AppColors.error600,
-                    fontSize: 10,
+                    fontWeight: .bold
                   ),
                 ),
               ),

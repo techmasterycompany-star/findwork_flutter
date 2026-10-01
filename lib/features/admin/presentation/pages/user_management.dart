@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_spacing.dart';
 import '../../business_logic/admin_filter.dart';
-import '../../data/mock_data.dart';
+import '../../data/admin_mock_data.dart';
+import '../admin_strings.dart';
 import '../widgets/date_filter.dart';
 import '../widgets/filter_chip.dart';
 import '../widgets/pagination.dart';
@@ -27,18 +28,18 @@ class _UserManagementScreenState extends State<UserManagementScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AdminStrings.of(context);
     final textTheme = Theme.of(context).textTheme;
     final summaryCards = getUserManagementSummary();
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
-          padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HeadLine(message: 'User Management'),
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
+        padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            HeadLine(message: strings.userManagement),
               SizedBox(height: AppSpacing.sectionInternalPadding),
 
               GridView.count(
@@ -60,7 +61,7 @@ class _UserManagementScreenState extends State<UserManagementScreen> {
               SizedBox(height: AppSpacing.sectionInternalPadding),
 
               AppSearchField(
-                hintText: 'Search by name company',
+                hintText: strings.searchByNameOrCompany,
                 searchQuery: _filter.searchQuery,
                 onChanged: (value) {
                   setState(() {
@@ -123,7 +124,7 @@ class _UserManagementScreenState extends State<UserManagementScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
                   child: Center(
-                    child: Text('No users found', style: textTheme.bodyMedium),
+                    child: Text(strings.noUsersFound, style: textTheme.bodyMedium),
                   ),
                 )
               else
@@ -147,7 +148,6 @@ class _UserManagementScreenState extends State<UserManagementScreen> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

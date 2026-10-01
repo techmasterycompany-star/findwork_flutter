@@ -26,7 +26,9 @@ class CompanyActivationDetail extends StatelessWidget {
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppSpacing.radiusXLarge)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppSpacing.radiusXLarge),
+        ),
       ),
       builder: (_) => CompanyActivationDetail(
         company: company,
@@ -64,15 +66,14 @@ class CompanyActivationDetail extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return DraggableScrollableSheet(
-      initialChildSize: 0.7,
-      minChildSize: 0.5,
-      maxChildSize: 0.9,
       expand: false,
       builder: (context, scrollController) {
         return Container(
           decoration: BoxDecoration(
             color: colorTheme.surface,
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(AppSpacing.radiusXLarge)),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(AppSpacing.radiusXLarge),
+            ),
           ),
           child: ListView(
             controller: scrollController,
@@ -190,9 +191,7 @@ class CompanyActivationDetail extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: colorTheme.onSurface,
-        ),
+        border: Border.all(color: colorTheme.onSurface),
         borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
       ),
       child: Column(
@@ -213,7 +212,12 @@ class CompanyActivationDetail extends StatelessWidget {
           AppSpacing.vertical24,
           _buildInfoRow('Industry', company.industry, textTheme, colorTheme),
           AppSpacing.vertical12,
-          _buildInfoRow('Company Size', company.companySize, textTheme, colorTheme),
+          _buildInfoRow(
+            'Company Size',
+            company.companySize,
+            textTheme,
+            colorTheme,
+          ),
           AppSpacing.vertical12,
           _buildInfoRow('Website', company.website, textTheme, colorTheme),
           AppSpacing.vertical12,
@@ -223,15 +227,18 @@ class CompanyActivationDetail extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoRow(String label, String value, TextTheme textTheme, ColorScheme colorTheme) {
+  Widget _buildInfoRow(
+    String label,
+    String value,
+    TextTheme textTheme,
+    ColorScheme colorTheme,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           label,
-          style: textTheme.bodySmall?.copyWith(
-            color: colorTheme.onSurface,
-          ),
+          style: textTheme.bodySmall?.copyWith(color: colorTheme.onSurface),
         ),
         AppSpacing.vertical8,
         Text(value, style: textTheme.bodyMedium),
@@ -243,9 +250,7 @@ class CompanyActivationDetail extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: colorTheme.onSurface,
-        ),
+        border: Border.all(color: colorTheme.onSurface),
         borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
       ),
       child: Column(
@@ -275,9 +280,7 @@ class CompanyActivationDetail extends StatelessWidget {
                     color: colorTheme.onSurface,
                   ),
                   AppSpacing.horizontal8,
-                  Expanded(
-                    child: Text(doc, style: textTheme.bodyMedium),
-                  ),
+                  Expanded(child: Text(doc, style: textTheme.bodyMedium)),
                   Icon(Icons.download, size: 18, color: colorTheme.primary),
                 ],
               ),
@@ -290,6 +293,7 @@ class CompanyActivationDetail extends StatelessWidget {
 
   Widget _buildActionButtons(BuildContext context, ColorScheme colorTheme) {
     return Row(
+      spacing: AppSpacing.cardGapSmall,
       children: [
         Expanded(
           child: ElevatedButton(
