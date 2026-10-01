@@ -13,12 +13,12 @@ import 'package:findwork_flutter/features/employer/presentation/pages/post_job/s
 import 'package:findwork_flutter/features/employer/presentation/pages/employer_settings/employer_settings_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/company_profile_settings/company_profile_settings_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/applicants/applicants_screen.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/application_details/application_details_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/admin/presentation/admin_main.dart';
 
 GoRouter router = GoRouter(
-<<<<<<< HEAD
   initialLocation: '/AdminMain',
   routes: [
     GoRoute(
@@ -40,7 +40,6 @@ GoRouter router = GoRouter(
       path: '/CompanyActivation',
       builder: (context, state) => const CompanyActivationScreen(),
     ),
-<<<<<<< HEAD
     GoRoute(
       path: '/HomepageEmployer',
       builder: (context, state) => const HomepageEmployer(),
@@ -77,17 +76,9 @@ GoRouter router = GoRouter(
       path: '/Applicants',
       builder: (context, state) => const ApplicantsScreen(),
     ),
-
-    // ============ ADMIN ============
     GoRoute(
-      path: '/JobManagement',
-      builder: (context, state) => const JobManagementScreen(),
-    ),
-
-    // ============ OTHERS ============
-    GoRoute(
-      path: '/Notification',
-      builder: (context, state) => const NotificationScreen(),
+      path: '/ApplicationDetails',
+      builder: (context, state) => const ApplicationDetailsScreen(),
     ),
   ],
 );
