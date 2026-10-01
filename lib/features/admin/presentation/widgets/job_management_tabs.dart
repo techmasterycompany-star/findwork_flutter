@@ -4,19 +4,19 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../admin_strings.dart';
 
-class CompanyActivationTabs extends StatelessWidget {
+class JobManagementTabs extends StatelessWidget {
   final String? statusFilter;
   final ValueChanged<String?> onStatusFilterChanged;
   final int pendingCount;
-  final int rejectedCount;
+  final int approvedCount;
   final int totalCount;
 
-  const CompanyActivationTabs({
+  const JobManagementTabs({
     super.key,
     required this.statusFilter,
     required this.onStatusFilterChanged,
     required this.pendingCount,
-    required this.rejectedCount,
+    required this.approvedCount,
     required this.totalCount,
   });
 
@@ -33,19 +33,19 @@ class CompanyActivationTabs extends StatelessWidget {
           isSelected: statusFilter == null,
           onTap: () => onStatusFilterChanged(null),
         ),
-        const SizedBox(width: AppSpacing.iconTextGap),
+        AppSpacing.horizontal8,
         _TabChip(
           label: strings.pending,
           count: pendingCount,
           isSelected: statusFilter == 'Pending',
           onTap: () => onStatusFilterChanged('Pending'),
         ),
-        const SizedBox(width: AppSpacing.iconTextGap),
+        AppSpacing.horizontal8,
         _TabChip(
-          label: strings.rejected,
-          count: rejectedCount,
-          isSelected: statusFilter == 'Rejected',
-          onTap: () => onStatusFilterChanged('Rejected'),
+          label: strings.approved,
+          count: approvedCount,
+          isSelected: statusFilter == 'Accepted',
+          onTap: () => onStatusFilterChanged('Accepted'),
         ),
       ],
     );
@@ -76,7 +76,7 @@ class _TabChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primary600 : colorTheme.surface,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
           border: Border.all(
             color: isSelected ? AppColors.primary600 : colorTheme.onSurface,
           ),
@@ -90,10 +90,12 @@ class _TabChip extends StatelessWidget {
                 color: isSelected ? AppColors.white : colorTheme.onSurface,
               ),
             ),
-            const SizedBox(width: 4),
+            AppSpacing.horizontal8,
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(AppSpacing.radiusTiny),
+              ),
               child: Text(
                 '$count',
                 style: textTheme.bodySmall?.copyWith(

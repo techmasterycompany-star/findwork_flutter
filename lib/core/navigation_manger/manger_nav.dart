@@ -1,4 +1,6 @@
+import 'package:findwork_flutter/core/utils/notification.dart';
 import 'package:findwork_flutter/features/admin/presentation/pages/company_activation.dart';
+import 'package:findwork_flutter/features/admin/presentation/pages/job_management.dart';
 import 'package:findwork_flutter/features/admin/presentation/pages/user_management.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/candidate_profile/candidate_profile.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/employer_profile/employer_profile.dart';
@@ -14,8 +16,10 @@ import 'package:findwork_flutter/features/employer/presentation/pages/applicants
 import 'package:findwork_flutter/features/employer/presentation/pages/application_details/application_details_screen.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/admin/presentation/admin_main.dart';
+
 GoRouter router = GoRouter(
-  initialLocation: '/Applicants',
+  initialLocation: '/AdminMain',
   routes: [
     GoRoute(
       path: '/CandidateProfile',
@@ -25,6 +29,9 @@ GoRouter router = GoRouter(
       path: '/EmployerProfile',
       builder: (context, state) => const EmployerProfile(),
     ),
+// ============ ADMIN ============
+    GoRoute(path: '/AdminMain', builder: (context, state) => const AdminMain()),
+
     GoRoute(
       path: '/UserManagement',
       builder: (context, state) => const UserManagementScreen(),

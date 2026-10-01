@@ -4,45 +4,41 @@ import '../../../../core/constants/app_spacing.dart';
 import '../../business_logic/admin_filter.dart';
 import '../../data/admin_mock_data.dart';
 import '../admin_strings.dart';
-import '../widgets/company_activation_card.dart';
-import '../widgets/company_activation_detail.dart';
-import '../widgets/company_activation_tabs.dart';
+import '../widgets/job_management_card.dart';
+import '../widgets/job_management_detail.dart';
+import '../widgets/job_management_tabs.dart';
 import '../widgets/date_filter.dart';
 import '../widgets/pagination.dart';
 import '../widgets/screen_headline.dart';
 import '../widgets/search_field.dart';
 import '../widgets/summary_card.dart';
 
-class CompanyActivationScreen extends StatefulWidget {
-  const CompanyActivationScreen({super.key});
+class JobManagementScreen extends StatefulWidget {
+  const JobManagementScreen({super.key});
 
   @override
-  State<CompanyActivationScreen> createState() =>
-      _CompanyActivationScreenState();
+  State<JobManagementScreen> createState() => _JobManagementScreenState();
 }
 
-class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
+class _JobManagementScreenState extends State<JobManagementScreen> {
   AdminFilterState _filter = const AdminFilterState();
 
-  List<CompanyActivation> get _reviewCompanies =>
-      mockCompanyActivations.where((c) => c.status != 'Active').toList();
-  List<CompanyActivation> get _filteredCompanies =>
-      _filter.filterCompanies(_reviewCompanies);
-  int get _totalPages => _filter.totalPages(_filteredCompanies.length);
-  List<CompanyActivation> get _paginatedCompanies =>
-      _filter.paginateCompanies(_filteredCompanies);
+  List<Job> get _allJobs => mockJobs;
+  List<Job> get _filteredJobs => _filter.filterJobs(_allJobs);
+  int get _totalPages => _filter.totalPages(_filteredJobs.length);
+  List<Job> get _paginatedJobs => _filter.paginateJobs(_filteredJobs);
 
-  int get _pendingCount =>
-      _reviewCompanies.where((c) => c.status == 'Pending').length;
-  int get _rejectedCount =>
-      _reviewCompanies.where((c) => c.status == 'Rejected').length;
+  int get _pendingCount => _allJobs.where((j) => j.status == 'Pending').length;
+  int get _approvedCount => _allJobs.where((j) => j.status == 'Accepted').length;
 
   void _showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
+        ),
       ),
     );
   }
@@ -51,7 +47,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
   Widget build(BuildContext context) {
     final strings = AdminStrings.of(context);
     final textTheme = Theme.of(context).textTheme;
-    final summaryCards = getCompanyActivationSummary();
+    final summaryCards = getJobManagementSummary();
 
     return SingleChildScrollView(
       child: Container(
@@ -60,8 +56,8 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeadLine(message: strings.companyActivation),
-              AppSpacing.vertical12,
+            HeadLine(message: strings.jobManagement),
+              AppSpacing.vertical24,
 
               GridView.count(
                 crossAxisCount: 2,
@@ -79,9 +75,9 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                     ),
                 ],
               ),
-              AppSpacing.vertical12,
+              AppSpacing.vertical24,
 
-              CompanyActivationTabs(
+              JobManagementTabs(
                 statusFilter: _filter.statusFilter,
                 onStatusFilterChanged: (value) {
                   setState(() {
@@ -92,10 +88,10 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   });
                 },
                 pendingCount: _pendingCount,
-                rejectedCount: _rejectedCount,
-                totalCount: _reviewCompanies.length,
+                approvedCount: _approvedCount,
+                totalCount: _allJobs.length,
               ),
-              AppSpacing.vertical12,
+              AppSpacing.vertical24,
 
               AppSearchField(
                 hintText: strings.searchByCompany,
@@ -109,7 +105,7 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   });
                 },
               ),
-              SizedBox(height: AppSpacing.cardGapSmall),
+              AppSpacing.vertical20,
 
               AppDateFilter(
                 selectedDate: _filter.selectedDate,
@@ -122,43 +118,35 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   });
                 },
               ),
-              SizedBox(height: AppSpacing.cardGapSmall),
+              AppSpacing.vertical20,
 
-              if (_filteredCompanies.isEmpty)
+              if (_filteredJobs.isEmpty)
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: AppSpacing.sectionGap,
-                  ),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.sectionGap),
                   child: Center(
-                    child: Text(
-                      strings.noCompaniesFound,
-                      style: textTheme.bodyMedium,
-                    ),
+                    child: Text(strings.noJobsFound, style: textTheme.bodyMedium),
                   ),
                 )
               else
-                ..._paginatedCompanies.map(
-                  (company) => CompanyActivationCard(
-                    company: company,
+                ..._paginatedJobs.map(
+                  (job) => JobManagementCard(
+                    job: job,
                     onReview: () {
-                      CompanyActivationDetail.show(
+                      JobManagementDetail.show(
                         context,
-                        company: company,
-                        onActivate: () {
-                          _showSnackbar(
-                            '${company.name} has been activated successfully',
-                          );
+                        job: job,
+                        onApprove: () {
+                          _showSnackbar('${job.jobTitle} at ${job.companyName} has been approved');
                         },
                         onReject: () {
-                          _showSnackbar('${company.name} has been rejected');
+                          _showSnackbar('${job.jobTitle} at ${job.companyName} has been rejected');
                         },
                       );
                     },
                   ),
                 ),
 
-              AppSpacing.vertical12,
-
+              AppSpacing.vertical24,
               AppPagination(
                 currentPage: _filter.currentPage,
                 totalPages: _totalPages,
@@ -168,9 +156,9 @@ class _CompanyActivationScreenState extends State<CompanyActivationScreen> {
                   });
                 },
               ),
-            ],
-          ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

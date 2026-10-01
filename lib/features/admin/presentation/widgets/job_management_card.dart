@@ -2,21 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
-import '../../data/models/company_activation.dart';
+import '../../data/models/job.dart';
 import '../admin_strings.dart';
 
-class CompanyActivationCard extends StatelessWidget {
-  final CompanyActivation company;
+class JobManagementCard extends StatelessWidget {
+  final Job job;
   final VoidCallback? onReview;
 
-  const CompanyActivationCard({
-    super.key,
-    required this.company,
-    this.onReview,
-  });
+  const JobManagementCard({super.key, required this.job, this.onReview});
 
   Color _statusBgColor(ColorScheme colorTheme) {
-    switch (company.status) {
+    switch (job.status) {
       case 'Accepted':
         return AppColors.success200;
       case 'Rejected':
@@ -27,8 +23,8 @@ class CompanyActivationCard extends StatelessWidget {
   }
 
   Color _statusTextColor(ColorScheme colorTheme) {
-    switch (company.status) {
-      case 'Active':
+    switch (job.status) {
+      case 'Accepted':
         return AppColors.success600;
       case 'Rejected':
         return AppColors.error600;
@@ -48,11 +44,12 @@ class CompanyActivationCard extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.sectionInternalPadding),
       decoration: BoxDecoration(
         color: colorTheme.surface,
+        borderRadius: BorderRadius.circular(AppSpacing.radiusTiny),
         boxShadow: [
           BoxShadow(
             color: colorTheme.onSurface,
             offset: const Offset(0, 1),
-            blurRadius: 4,
+            blurRadius: 1,
           ),
         ],
       ),
@@ -62,8 +59,8 @@ class CompanyActivationCard extends StatelessWidget {
           Row(
             children: [
               Container(
-                width: 48,
-                height: 48,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                   color: colorTheme.primary,
                   borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
@@ -71,7 +68,7 @@ class CompanyActivationCard extends StatelessWidget {
                 child: Icon(
                   Icons.business,
                   color: colorTheme.onPrimary,
-                  size: 24,
+                  size: 25,
                 ),
               ),
               AppSpacing.horizontal24,
@@ -79,13 +76,48 @@ class CompanyActivationCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(company.name, style: textTheme.bodyMedium),
+                    Row(
+                      mainAxisAlignment: .spaceBetween,
+                      children: [
+                        Text(job.companyName, style: textTheme.bodyMedium),
+                        Text(
+                          job.date,
+                          style: textTheme.bodySmall?.copyWith(
+                            color: colorTheme.onSurface,
+                          ),
+                        ),
+                      ],
+                    ),
                     AppSpacing.vertical8,
-                    Text(
-                      company.category,
-                      style: textTheme.bodySmall?.copyWith(
-                        color: colorTheme.onSurface,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          job.jobTitle,
+                          style: textTheme.bodySmall?.copyWith(
+                            color: colorTheme.onSurface,
+                          ),
+                        ),
+                        AppSpacing.horizontal8,
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.iconTextGap,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.success200,
+                            borderRadius: BorderRadius.circular(
+                              AppSpacing.radiusTiny,
+                            ),
+                          ),
+                          child: Text(
+                            job.jobType,
+                            style: textTheme.bodyMedium?.copyWith(
+                              fontWeight: .bold,
+                              color: AppColors.success500
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     AppSpacing.vertical8,
                     Container(
@@ -100,20 +132,14 @@ class CompanyActivationCard extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        company.status,
+                        job.status,
                         style: textTheme.bodyMedium?.copyWith(
                           color: _statusTextColor(colorTheme),
-                          fontWeight: .bold
+                          fontWeight: .bold,
                         ),
                       ),
                     ),
                   ],
-                ),
-              ),
-              Text(
-                company.date,
-                style: textTheme.bodySmall?.copyWith(
-                  color: colorTheme.onSurface,
                 ),
               ),
             ],
@@ -133,9 +159,10 @@ class CompanyActivationCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                 ),
               ),
-              child: Text(strings.review, style: textTheme.bodyLarge?.copyWith(
-                fontWeight: .bold
-              ),),
+              child: Text(
+                strings.review,
+                style: textTheme.bodyLarge?.copyWith(fontWeight: .bold),
+              ),
             ),
           ),
         ],

@@ -26,8 +26,12 @@ class AppDateFilter extends StatelessWidget {
           lastDate: DateTime.now(),
         );
         if (picked != null) {
-          final dateStr = '${picked.day.toString().padLeft(2, '0')}/'
-              '${picked.month.toString().padLeft(2, '0')}/'
+          final months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+          ];
+          final dateStr = '${picked.day.toString().padLeft(2, '0')} '
+              '${months[picked.month - 1]} '
               '${picked.year}';
           onDateChanged(dateStr);
         }

@@ -1,0 +1,728 @@
+export 'models/company_activation.dart';
+export 'models/job.dart';
+export 'models/summary_card_data.dart';
+export 'models/user_management_data.dart';
+
+import 'models/company_activation.dart';
+import 'models/job.dart';
+import 'models/summary_card_data.dart';
+import 'models/user_management_data.dart';
+
+final List<CompanyActivation> mockCompanyActivations = [
+  CompanyActivation(
+    name: 'Tech Solutions',
+    category: 'Software/Technology',
+    date: '25/08/2026',
+    status: 'Pending',
+    email: 'info@techsolutions.com',
+    phone: '+20 100 123 4567',
+    description:
+        'We build innovative software solutions to help businesses grow and succeed.',
+    industry: 'Software / SaaS',
+    companySize: '11 - 50 employees',
+    website: 'www.techsolutions.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'Tax Registration'],
+  ),
+  CompanyActivation(
+    name: 'Digital World',
+    category: 'Software/Technology',
+    date: '24/08/2026',
+    status: 'Pending',
+    email: 'contact@digitalworld.com',
+    phone: '+20 111 234 5678',
+    description:
+        'Full-service digital agency specializing in web and mobile development.',
+    industry: 'Software / SaaS',
+    companySize: '51 - 100 employees',
+    website: 'www.digitalworld.com',
+    location: 'Alexandria, Egypt',
+    documents: ['Business License', 'ISO Certificate'],
+  ),
+  CompanyActivation(
+    name: 'Green Energy Co',
+    category: 'Renewable Energy',
+    date: '23/08/2026',
+    status: 'Pending',
+    email: 'hello@greenenergy.com',
+    phone: '+20 122 345 6789',
+    description:
+        'Leading provider of renewable energy solutions for residential and commercial use.',
+    industry: 'Renewable Energy',
+    companySize: '101 - 250 employees',
+    website: 'www.greenenergy.com',
+    location: 'Giza, Egypt',
+    documents: ['Business License', 'Environmental Certification'],
+  ),
+  CompanyActivation(
+    name: 'Health Plus',
+    category: 'Healthcare',
+    date: '22/08/2026',
+    status: 'Pending',
+    email: 'support@healthplus.com',
+    phone: '+20 101 456 7890',
+    description:
+        'Healthcare platform providing telemedicine and wellness services.',
+    industry: 'Healthcare / Medical',
+    companySize: '21 - 50 employees',
+    website: 'www.healthplus.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'Medical License'],
+  ),
+  CompanyActivation(
+    name: 'EduLearn',
+    category: 'Education',
+    date: '21/08/2026',
+    status: 'Rejected',
+    email: 'admin@edulearn.com',
+    phone: '+20 112 567 8901',
+    description:
+        'Online education platform offering courses and certifications.',
+    industry: 'Education / E-Learning',
+    companySize: '11 - 50 employees',
+    website: 'www.edulearn.com',
+    location: 'Luxor, Egypt',
+    documents: ['Business License'],
+  ),
+  CompanyActivation(
+    name: 'Foodie Hub',
+    category: 'Food & Beverage',
+    date: '20/08/2026',
+    status: 'Active',
+    email: 'info@foodiehub.com',
+    phone: '+20 103 678 9012',
+    description:
+        'Food delivery and catering services connecting restaurants with customers.',
+    industry: 'Food & Beverage',
+    companySize: '51 - 100 employees',
+    website: 'www.foodiehub.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'Food Safety Certificate'],
+  ),
+  CompanyActivation(
+    name: 'Finance Pro',
+    category: 'Finance',
+    date: '19/08/2026',
+    status: 'Pending',
+    email: 'contact@financepro.com',
+    phone: '+20 114 789 0123',
+    description:
+        'Financial consulting and investment management for businesses.',
+    industry: 'Finance / Banking',
+    companySize: '11 - 50 employees',
+    website: 'www.financepro.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'Financial License'],
+  ),
+  CompanyActivation(
+    name: 'TravelMate',
+    category: 'Travel & Tourism',
+    date: '18/08/2026',
+    status: 'Active',
+    email: 'info@travelmate.com',
+    phone: '+20 105 890 1234',
+    description: 'Travel agency offering curated tours and vacation packages.',
+    industry: 'Travel & Tourism',
+    companySize: '21 - 50 employees',
+    website: 'www.travelmate.com',
+    location: 'Hurghada, Egypt',
+    documents: ['Business License', 'Tourism License'],
+  ),
+  CompanyActivation(
+    name: 'Style Studio',
+    category: 'Fashion',
+    date: '17/08/2026',
+    status: 'Rejected',
+    email: 'hello@stylestudio.com',
+    phone: '+20 116 901 2345',
+    description: 'Fashion design studio creating contemporary clothing lines.',
+    industry: 'Fashion / Retail',
+    companySize: '1 - 10 employees',
+    website: 'www.stylestudio.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License'],
+  ),
+  CompanyActivation(
+    name: 'BuildIt',
+    category: 'Construction',
+    date: '16/08/2026',
+    status: 'Pending',
+    email: 'info@buildit.com',
+    phone: '+20 107 012 3456',
+    description:
+        'Construction company specializing in residential and commercial projects.',
+    industry: 'Construction / Real Estate',
+    companySize: '101 - 250 employees',
+    website: 'www.buildit.com',
+    location: 'Giza, Egypt',
+    documents: ['Business License', 'Construction Permit'],
+  ),
+  CompanyActivation(
+    name: 'CloudNine',
+    category: 'Software/Technology',
+    date: '15/08/2026',
+    status: 'Active',
+    email: 'support@cloudnine.com',
+    phone: '+20 118 123 4567',
+    description: 'Cloud infrastructure and DevOps solutions for enterprises.',
+    industry: 'Software / SaaS',
+    companySize: '51 - 100 employees',
+    website: 'www.cloudnine.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'ISO Certificate'],
+  ),
+  CompanyActivation(
+    name: 'MediaWorks',
+    category: 'Media & Entertainment',
+    date: '14/08/2026',
+    status: 'Pending',
+    email: 'contact@mediaworks.com',
+    phone: '+20 109 234 5678',
+    description:
+        'Media production company creating digital content and advertising.',
+    industry: 'Media & Entertainment',
+    companySize: '21 - 50 employees',
+    website: 'www.mediaworks.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'Media License'],
+  ),
+  CompanyActivation(
+    name: 'AutoDrive',
+    category: 'Automotive',
+    date: '13/08/2026',
+    status: 'Active',
+    email: 'info@autodrive.com',
+    phone: '+20 110 345 6789',
+    description:
+        'Automotive technology company developing autonomous driving systems.',
+    industry: 'Automotive / Technology',
+    companySize: '51 - 100 employees',
+    website: 'www.autodrive.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License', 'Technical Certification'],
+  ),
+  CompanyActivation(
+    name: 'PetCare',
+    category: 'Animal Care',
+    date: '12/08/2026',
+    status: 'Pending',
+    email: 'hello@petcare.com',
+    phone: '+20 112 456 7890',
+    description:
+        'Pet care services including grooming, boarding, and veterinary care.',
+    industry: 'Animal Care / Services',
+    companySize: '11 - 50 employees',
+    website: 'www.petcare.com',
+    location: 'Alexandria, Egypt',
+    documents: ['Business License', 'Veterinary License'],
+  ),
+  CompanyActivation(
+    name: 'LogiSwift',
+    category: 'Logistics',
+    date: '11/08/2026',
+    status: 'Rejected',
+    email: 'support@logiswift.com',
+    phone: '+20 114 567 8901',
+    description:
+        'Last-mile delivery and logistics solutions for e-commerce businesses.',
+    industry: 'Logistics / Supply Chain',
+    companySize: '101 - 250 employees',
+    website: 'www.logiswift.com',
+    location: 'Cairo, Egypt',
+    documents: ['Business License'],
+  ),
+];
+
+final List<UserManagementData> mockUsers = [
+  UserManagementData(
+    name: 'Tech Solutions',
+    role: 'Software/Technology',
+    date: '25/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Aya Ahmed',
+    role: 'UI/UX Designer',
+    date: '25/08/2026',
+    status: 'InActive',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'Digital World',
+    role: 'Software/Technology',
+    date: '24/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Mohamed Ali',
+    role: 'Backend Developer',
+    date: '24/08/2026',
+    status: 'Active',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'Health Plus',
+    role: 'Healthcare',
+    date: '23/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Sara Hassan',
+    role: 'Product Manager',
+    date: '23/08/2026',
+    status: 'InActive',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'EduLearn',
+    role: 'Education',
+    date: '22/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Omar Khalid',
+    role: 'Data Analyst',
+    date: '22/08/2026',
+    status: 'Active',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'Finance Pro',
+    role: 'Finance',
+    date: '21/08/2026',
+    status: 'InActive',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Nada Youssef',
+    role: 'Marketing Specialist',
+    date: '21/08/2026',
+    status: 'Active',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'TravelMate',
+    role: 'Travel & Tourism',
+    date: '20/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Ahmed Mansour',
+    role: 'DevOps Engineer',
+    date: '20/08/2026',
+    status: 'InActive',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'Style Studio',
+    role: 'Fashion',
+    date: '19/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Fatma Ibrahim',
+    role: 'Content Writer',
+    date: '19/08/2026',
+    status: 'Active',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'BuildIt',
+    role: 'Construction',
+    date: '18/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Youssef Karim',
+    role: 'Mobile Developer',
+    date: '18/08/2026',
+    status: 'InActive',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'CloudNine',
+    role: 'Software/Technology',
+    date: '17/08/2026',
+    status: 'Active',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Layla Abbas',
+    role: 'QA Engineer',
+    date: '17/08/2026',
+    status: 'Active',
+    isCompany: false,
+  ),
+  UserManagementData(
+    name: 'MediaWorks',
+    role: 'Media & Entertainment',
+    date: '16/08/2026',
+    status: 'InActive',
+    isCompany: true,
+  ),
+  UserManagementData(
+    name: 'Hassan Farouk',
+    role: 'Graphic Designer',
+    date: '16/08/2026',
+    status: 'Active',
+    isCompany: false,
+  ),
+];
+
+List<SummaryCardData> getCompanyActivationSummary() {
+  final pending = mockCompanyActivations
+      .where((c) => c.status == 'Pending')
+      .length;
+  final active = mockCompanyActivations
+      .where((c) => c.status == 'Active')
+      .length;
+  final rejected = mockCompanyActivations
+      .where((c) => c.status == 'Rejected')
+      .length;
+  final total = mockCompanyActivations.length;
+
+  return [
+    SummaryCardData(
+      title: 'Pending Activation',
+      number: '$pending',
+      subTitle: 'Requires your review',
+    ),
+    SummaryCardData(
+      title: 'Active Companies',
+      number: '$active',
+      subTitle: 'Activated companies',
+    ),
+    SummaryCardData(
+      title: 'Rejected',
+      number: '$rejected',
+      subTitle: 'Rejected companies',
+    ),
+    SummaryCardData(
+      title: 'Total companies',
+      number: '$total',
+      subTitle: 'All companies',
+    ),
+  ];
+}
+
+List<SummaryCardData> getUserManagementSummary() {
+  final total = mockUsers.length;
+  final active = mockUsers.where((u) => u.status == 'Active').length;
+  final candidates = mockUsers.where((u) => !u.isCompany).length;
+  final employers = mockUsers.where((u) => u.isCompany).length;
+
+  return [
+    SummaryCardData(
+      title: 'Total Users',
+      number: '$total',
+      subTitle: '+12% From last week',
+    ),
+    SummaryCardData(
+      title: 'Active Users',
+      number: '$active',
+      subTitle: '+8.1% From last week',
+    ),
+    SummaryCardData(
+      title: 'Candidates',
+      number: '$candidates',
+      subTitle: '+85.5% From last week',
+    ),
+    SummaryCardData(
+      title: 'Employers',
+      number: '$employers',
+      subTitle: '+8.1% From last week',
+    ),
+  ];
+}
+
+final List<Job> mockJobs = [
+  Job(
+    companyName: 'Tech Company',
+    jobTitle: 'UI/UX Designer',
+    jobType: 'Full-time',
+    date: '25 Aug 2026',
+    status: 'Pending',
+    expiresIn: '14 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: 'Not Specified',
+    education: "Bachelor's",
+    location: 'Dhaka, Bangladesh',
+    skills: ['Web Design', 'Figma', 'User Interface Design', 'User Experience'],
+  ),
+  Job(
+    companyName: 'Tech Company',
+    jobTitle: 'UI/UX Designer',
+    jobType: 'Remote',
+    date: '25 Aug 2026',
+    status: 'Accepted',
+    expiresIn: '14 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: 'Not Specified',
+    education: "Bachelor's",
+    location: 'Dhaka, Bangladesh',
+    skills: ['Web Design', 'Figma', 'User Interface Design', 'User Experience'],
+  ),
+  Job(
+    companyName: 'Tech Company',
+    jobTitle: 'UI/UX Designer',
+    jobType: 'Full-time',
+    date: '25 Aug 2026',
+    status: 'Rejected',
+    expiresIn: '14 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: 'Not Specified',
+    education: "Bachelor's",
+    location: 'Dhaka, Bangladesh',
+    skills: ['Web Design', 'Figma', 'User Interface Design', 'User Experience'],
+  ),
+  Job(
+    companyName: 'Tech Company',
+    jobTitle: 'UI/UX Designer',
+    jobType: 'Full-time',
+    date: '25 Aug 2026',
+    status: 'Pending',
+    expiresIn: '14 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: 'Not Specified',
+    education: "Bachelor's",
+    location: 'Dhaka, Bangladesh',
+    skills: ['Web Design', 'Figma', 'User Interface Design', 'User Experience'],
+  ),
+  Job(
+    companyName: 'Digital World',
+    jobTitle: 'Frontend Developer',
+    jobType: 'Full-time',
+    date: '24 Aug 2026',
+    status: 'Pending',
+    expiresIn: '20 Aug 2025',
+    jobLevel: 'Mid Level',
+    salary: r'$800 - $1200',
+    education: "Bachelor's",
+    location: 'Cairo, Egypt',
+    skills: ['Flutter', 'Dart', 'React', 'TypeScript'],
+  ),
+  Job(
+    companyName: 'Green Energy Co',
+    jobTitle: 'Project Manager',
+    jobType: 'Full-time',
+    date: '23 Aug 2026',
+    status: 'Accepted',
+    expiresIn: '15 Sep 2025',
+    jobLevel: 'Senior Level',
+    salary: r'$2000 - $3000',
+    education: "Master's",
+    location: 'Giza, Egypt',
+    skills: ['Project Management', 'Agile', 'Scrum', 'Leadership'],
+  ),
+  Job(
+    companyName: 'Health Plus',
+    jobTitle: 'Data Analyst',
+    jobType: 'Remote',
+    date: '22 Aug 2026',
+    status: 'Pending',
+    expiresIn: '01 Sep 2025',
+    jobLevel: 'Entry Level',
+    salary: r'$600 - $900',
+    education: "Bachelor's",
+    location: 'Alexandria, Egypt',
+    skills: ['SQL', 'Python', 'Excel', 'Data Visualization'],
+  ),
+  Job(
+    companyName: 'EduLearn',
+    jobTitle: 'Content Writer',
+    jobType: 'Part-time',
+    date: '21 Aug 2026',
+    status: 'Rejected',
+    expiresIn: '10 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: r'$400 - $600',
+    education: "Bachelor's",
+    location: 'Luxor, Egypt',
+    skills: ['Content Writing', 'SEO', 'Copywriting', 'Editing'],
+  ),
+  Job(
+    companyName: 'Foodie Hub',
+    jobTitle: 'Marketing Specialist',
+    jobType: 'Full-time',
+    date: '20 Aug 2026',
+    status: 'Pending',
+    expiresIn: '05 Sep 2025',
+    jobLevel: 'Mid Level',
+    salary: r'$1000 - $1500',
+    education: "Bachelor's",
+    location: 'Cairo, Egypt',
+    skills: [
+      'Digital Marketing',
+      'Social Media',
+      'Analytics',
+      'Content Strategy',
+    ],
+  ),
+  Job(
+    companyName: 'Finance Pro',
+    jobTitle: 'Accountant',
+    jobType: 'Full-time',
+    date: '19 Aug 2026',
+    status: 'Accepted',
+    expiresIn: '25 Aug 2025',
+    jobLevel: 'Mid Level',
+    salary: r'$1200 - $1800',
+    education: "Bachelor's",
+    location: 'Cairo, Egypt',
+    skills: ['Accounting', 'Financial Reporting', 'Excel', 'QuickBooks'],
+  ),
+  Job(
+    companyName: 'TravelMate',
+    jobTitle: 'Tour Guide',
+    jobType: 'Full-time',
+    date: '18 Aug 2026',
+    status: 'Pending',
+    expiresIn: '30 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: r'$500 - $800',
+    education: 'High School',
+    location: 'Hurghada, Egypt',
+    skills: [
+      'Customer Service',
+      'Languages',
+      'Communication',
+      'Tourism Knowledge',
+    ],
+  ),
+  Job(
+    companyName: 'Style Studio',
+    jobTitle: 'Fashion Designer',
+    jobType: 'Full-time',
+    date: '17 Aug 2026',
+    status: 'Rejected',
+    expiresIn: '12 Aug 2025',
+    jobLevel: 'Mid Level',
+    salary: r'$900 - $1400',
+    education: "Bachelor's",
+    location: 'Cairo, Egypt',
+    skills: [
+      'Fashion Design',
+      'Adobe Illustrator',
+      'Pattern Making',
+      'Textile Knowledge',
+    ],
+  ),
+  Job(
+    companyName: 'BuildIt',
+    jobTitle: 'Civil Engineer',
+    jobType: 'Full-time',
+    date: '16 Aug 2026',
+    status: 'Pending',
+    expiresIn: '18 Sep 2025',
+    jobLevel: 'Senior Level',
+    salary: r'$2500 - $4000',
+    education: "Bachelor's",
+    location: 'Giza, Egypt',
+    skills: [
+      'AutoCAD',
+      'Structural Analysis',
+      'Project Management',
+      'Construction',
+    ],
+  ),
+  Job(
+    companyName: 'CloudNine',
+    jobTitle: 'DevOps Engineer',
+    jobType: 'Remote',
+    date: '15 Aug 2026',
+    status: 'Accepted',
+    expiresIn: '10 Sep 2025',
+    jobLevel: 'Senior Level',
+    salary: r'$3000 - $5000',
+    education: "Bachelor's",
+    location: 'Cairo, Egypt',
+    skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
+  ),
+  Job(
+    companyName: 'MediaWorks',
+    jobTitle: 'Video Editor',
+    jobType: 'Contract',
+    date: '14 Aug 2026',
+    status: 'Pending',
+    expiresIn: '28 Aug 2025',
+    jobLevel: 'Entry Level',
+    salary: r'$700 - $1000',
+    education: 'Diploma',
+    location: 'Cairo, Egypt',
+    skills: [
+      'Premiere Pro',
+      'After Effects',
+      'DaVinci Resolve',
+      'Color Grading',
+    ],
+  ),
+];
+
+List<SummaryCardData> getJobManagementSummary() {
+  final total = mockJobs.length;
+  final pending = mockJobs.where((j) => j.status == 'Pending').length;
+  final approved = mockJobs.where((j) => j.status == 'Accepted').length;
+  final rejected = mockJobs.where((j) => j.status == 'Rejected').length;
+
+  return [
+    SummaryCardData(
+      title: 'Total Jobs',
+      number: '$total',
+      subTitle: '+12% From last week',
+    ),
+    SummaryCardData(
+      title: 'Pending Approval',
+      number: '$pending',
+      subTitle: '2% From last week',
+    ),
+    SummaryCardData(
+      title: 'Approved',
+      number: '$approved',
+      subTitle: '71% From last week',
+    ),
+    SummaryCardData(
+      title: 'Rejected',
+      number: '$rejected',
+      subTitle: '10% From last week',
+    ),
+  ];
+}
+
+List<SummaryCardData> getOverviewSummary() {
+  final pendingCompanies = mockCompanyActivations
+      .where((c) => c.status == 'Pending')
+      .length;
+  final pendingJobs = mockJobs.where((j) => j.status == 'Pending').length;
+  final totalJobs = mockJobs.length;
+  final totalUsers = mockUsers.length;
+
+  return [
+    SummaryCardData(
+      title: 'Activation Company',
+      number: '$pendingCompanies',
+      subTitle: 'Review Account',
+    ),
+    SummaryCardData(
+      title: 'Pending Jobs',
+      number: '$pendingJobs',
+      subTitle: 'Review job Queue',
+    ),
+    SummaryCardData(
+      title: 'Total Jobs',
+      number: '$totalJobs',
+      subTitle: '+12% From last week',
+    ),
+    SummaryCardData(
+      title: 'Total User',
+      number: '$totalUsers',
+      subTitle: '+8.1% From last week',
+    ),
+  ];
+}
