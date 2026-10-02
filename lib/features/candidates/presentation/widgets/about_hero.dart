@@ -1,5 +1,6 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/constants/app_spacing.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidates_price_screen.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/active_jobs_badge.dart';
 import 'package:flutter/material.dart';
 
@@ -82,27 +83,37 @@ class AboutHero extends StatelessWidget {
                   color: theme.colorScheme.primary,
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: Row(
-                  children: [
-                    const Text(
-                      'Browse Candidates',
-                      style: TextStyle(
-                        color: AppColors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CandidatesPriceScreen(),
                       ),
-                    ),
-                    AppSpacing.horizontal8,
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        weight: 5.5,
-                        size: 9.5,
-                        color: AppColors.white,
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Browse Candidates',
+                        style: TextStyle(
+                          color: AppColors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                  ],
+                      AppSpacing.horizontal8,
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          weight: 5.5,
+                          size: 9.5,
+                          color: AppColors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               AppSpacing.horizontal12,

@@ -1,6 +1,5 @@
 import 'package:findwork_flutter/features/candidates/business_logic/cubit/language_cubit.dart';
 import 'package:findwork_flutter/features/candidates/business_logic/cubit/theme/theme_cubit.dart';
-import 'package:findwork_flutter/features/candidates/presentation/pages/about_us_mobile_screen.dart';
 import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_home.dart';
 import 'package:findwork_flutter/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
               themeMode: themeMode,
-              home: AboutUsMobileScreen(),
+              home: CandidateHome(),
             );
           },
         );

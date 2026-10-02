@@ -1,6 +1,5 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/constants/app_spacing.dart';
-import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_home.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/active_jobs_badge.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/app_footer.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/custom_app_bar.dart';

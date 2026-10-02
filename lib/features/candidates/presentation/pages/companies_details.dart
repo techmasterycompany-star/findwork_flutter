@@ -16,11 +16,9 @@ import 'package:findwork_flutter/features/candidates/presentation/widgets/profil
 import 'package:findwork_flutter/features/candidates/presentation/widgets/testimonial_card.dart';
 import 'package:findwork_flutter/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import '../widgets/company_card.dart';
 import '../widgets/description_bullet.dart';
 import '../widgets/job_details_section.dart';
 import '../widgets/skills_specialization_card.dart';
-import '../widgets/tags_section.dart';
 
 class CompaniesDetails extends StatefulWidget {
   const CompaniesDetails({super.key});
@@ -256,7 +254,15 @@ class _CompaniesDetailsState extends State<CompaniesDetails> {
                       children: [
                         ActiveJobsBadge(
                           backGround: AppColors.white,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ListCompaniesScreen(),
+                              ),
+                            );
+                          },
                           text: "View all",
                           textStyle: TextStyle(
                             color: AppColors.primary500,

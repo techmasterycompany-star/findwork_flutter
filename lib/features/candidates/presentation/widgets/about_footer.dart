@@ -1,5 +1,6 @@
 import 'package:findwork_flutter/core/constants/app_colors.dart';
 import 'package:findwork_flutter/core/constants/app_spacing.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidates_price_screen.dart';
 import 'package:findwork_flutter/features/candidates/presentation/widgets/active_jobs_badge.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +49,14 @@ class AboutFooter extends StatelessWidget {
               ),
               AppSpacing.horizontal12,
               ActiveJobsBadge(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CandidatesPriceScreen(),
+                    ),
+                  );
+                },
                 circular: 8,
                 border: Border.all(color: AppColors.white, width: 1),
                 backGround: AppColors.primary950,
