@@ -14,12 +14,13 @@ import 'package:findwork_flutter/features/employer/presentation/pages/employer_s
 import 'package:findwork_flutter/features/employer/presentation/pages/company_profile_settings/company_profile_settings_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/applicants/applicants_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/application_details/application_details_screen.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/notifications/employer_notifications_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/admin/presentation/admin_main.dart';
 
 GoRouter router = GoRouter(
-  initialLocation: '/AdminMain',
+  initialLocation: '/ApplicationDetails',
   routes: [
     GoRoute(
       path: '/CandidateProfile',
@@ -79,6 +80,10 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/ApplicationDetails',
       builder: (context, state) => const ApplicationDetailsScreen(),
+    ),
+    GoRoute(
+      path: '/EmployerNotifications',
+      builder: (context, state) => const EmployerNotificationsScreen(),
     ),
   ],
 );
