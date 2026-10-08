@@ -1,4 +1,7 @@
 import 'package:findwork_flutter/core/navigation_manger/manger_nav.dart';
+import 'package:findwork_flutter/features/auth/auth.dart';
+import 'package:findwork_flutter/features/auth/business_logic/cubit/auth_cubit.dart';
+import 'package:findwork_flutter/features/auth/data/repositories/mock_auth_repository.dart';
 import 'package:findwork_flutter/features/candidates/business_logic/cubit/language_cubit.dart';
 import 'package:findwork_flutter/features/candidates/business_logic/cubit/theme/theme_cubit.dart';
 import 'package:findwork_flutter/generated/l10n.dart';
@@ -15,6 +18,7 @@ void main() {
       providers: [
         BlocProvider(create: (_) => ThemeCubit()),
         BlocProvider(create: (_) => LanguageCubit()),
+        BlocProvider(create: (_) => AuthCubit(MockAuthRepository())),
       ],
       child: const MyApp(),
     ),

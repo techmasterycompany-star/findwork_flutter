@@ -29,14 +29,20 @@ abstract class AppSpacing {
   static const double radiusXLarge = 16.0;
 
   // ==================== SizedBox Helpers ====================
+  static const SizedBox vertical4 = SizedBox(height: 4.0);
   static const SizedBox vertical8 = SizedBox(height: iconTextGap);
   static const SizedBox vertical12 = SizedBox(height: titleToDescription);
+  static const SizedBox vertical16 = SizedBox(height: 16.0);
   static const SizedBox vertical20 = SizedBox(height: cardGapSmall);
   static const SizedBox vertical24 = SizedBox(height: sectionInternalPadding);
   static const SizedBox vertical32 = SizedBox(height: sectionGap);
+  static const SizedBox vertical40 = SizedBox(height: 40.0);
+  static const SizedBox vertical48 = SizedBox(height: 48.0);
   static const SizedBox vertical64 = SizedBox(height: headerGap);
 
+  static const SizedBox horizontal4 = SizedBox(width: 4.0);
   static const SizedBox horizontal8 = SizedBox(width: iconTextGap);
   static const SizedBox horizontal12 = SizedBox(width: titleToDescription);
+  static const SizedBox horizontal16 = SizedBox(width: 16.0);
   static const SizedBox horizontal24 = SizedBox(width: sectionInternalPadding);
 }
