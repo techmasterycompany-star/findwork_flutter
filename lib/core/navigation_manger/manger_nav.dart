@@ -1,5 +1,8 @@
 import 'package:findwork_flutter/features/admin/presentation/pages/company_activation.dart';
 import 'package:findwork_flutter/features/admin/presentation/pages/user_management.dart';
+
+// Imports from Auth Feature (HEAD)
+import 'package:findwork_flutter/features/auth/data/models/user.dart';
 import 'package:findwork_flutter/features/auth/presentation/pages/candidate_account_info_screen.dart';
 import 'package:findwork_flutter/features/auth/presentation/pages/candidate_profile_info_screen.dart';
 import 'package:findwork_flutter/features/auth/presentation/pages/candidate_review_screen.dart';
@@ -11,20 +14,39 @@ import 'package:findwork_flutter/features/auth/presentation/pages/forgot_passwor
 import 'package:findwork_flutter/features/auth/presentation/pages/login_screen.dart';
 import 'package:findwork_flutter/features/auth/presentation/pages/reset_password_screen.dart';
 import 'package:findwork_flutter/features/auth/presentation/pages/user_type_selection_screen.dart';
+
+// Imports from Candidates Feature (candidates)
+import 'package:findwork_flutter/features/candidates/presentation/pages/about_us_mobile_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/analytics_candidates_mobile.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_applay_five.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_applay_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_applay_step_fore.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_applay_step_three.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_applay_step_two.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidate_home.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidates_price_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/candidates_settings.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/contact_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/my_jobs_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/my_profile_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/notifications_screen.dart';
+import 'package:findwork_flutter/features/candidates/presentation/pages/saved_jobs_screen.dart';
+
+// Imports from Employer & Admin Features
+import 'package:findwork_flutter/features/employer/presentation/pages/applicants/applicants_screen.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/application_details/application_details_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/candidate_profile/candidate_profile.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/company_profile_settings/company_profile_settings_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/employer_profile/employer_profile.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/employer_settings/employer_settings_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/home_page_employer/homepage_employer.dart';
+import 'package:findwork_flutter/features/employer/presentation/pages/notifications/employer_notifications_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/post_job/step1/post_job_step1_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/post_job/step2/post_job_step2_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/post_job/step3/post_job_step3_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/post_job/step4/post_job_step4_screen.dart';
 import 'package:findwork_flutter/features/employer/presentation/pages/post_job/step5/post_job_step5_screen.dart';
-import 'package:findwork_flutter/features/employer/presentation/pages/employer_settings/employer_settings_screen.dart';
-import 'package:findwork_flutter/features/employer/presentation/pages/company_profile_settings/company_profile_settings_screen.dart';
-import 'package:findwork_flutter/features/employer/presentation/pages/applicants/applicants_screen.dart';
-import 'package:findwork_flutter/features/employer/presentation/pages/application_details/application_details_screen.dart';
-import 'package:findwork_flutter/features/employer/presentation/pages/notifications/employer_notifications_screen.dart';
-import 'package:findwork_flutter/features/auth/data/models/user.dart';
+
 import 'package:go_router/go_router.dart';
 import 'dart:developer' as dev;
 
@@ -133,31 +155,80 @@ GoRouter router = GoRouter(
             );
           }
         }
-        return ResetPasswordScreen(
-          email: email,
-          userType: userType,
-        );
+        return ResetPasswordScreen(email: email, userType: userType);
       },
     ),
 
+    // ============ CANDIDATE ============
+    GoRoute(
+      path: '/CandidateHome',
+      builder: (context, state) => const CandidateHome(),
+    ),
     GoRoute(
       path: '/CandidateProfile',
       builder: (context, state) => const CandidateProfile(),
     ),
     GoRoute(
+      path: '/AnalyticsCandidatesMobile',
+      builder: (context, state) => const AnalyticsCandidatesMobile(),
+    ),
+    GoRoute(
+      path: '/MyJobsScreen',
+      builder: (context, state) => const MyJobsScreen(),
+    ),
+    GoRoute(
+      path: '/NotificationsScreen',
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+    GoRoute(
+      path: '/MyProfileScreen',
+      builder: (context, state) => const MyProfileScreen(),
+    ),
+    GoRoute(
+      path: '/CandidatesSettings',
+      builder: (context, state) => const CandidatesSettings(),
+    ),
+    GoRoute(
+      path: '/CandidateApplayFive',
+      builder: (context, state) => const CandidateApplayFive(),
+    ),
+    GoRoute(
+      path: '/CandidateApplayStepFore',
+      builder: (context, state) => const CandidateApplayStepFore(),
+    ),
+    GoRoute(
+      path: '/CandidateApplayStepTwo',
+      builder: (context, state) => const CandidateApplayStepTwo(),
+    ),
+    GoRoute(
+      path: '/CandidateApplayStepThree',
+      builder: (context, state) => const CandidateApplayStepThree(),
+    ),
+    GoRoute(
+      path: '/CandidateApplayScreen',
+      builder: (context, state) => const CandidateApplayScreen(),
+    ),
+    GoRoute(
+      path: '/SavedJobsScreen',
+      builder: (context, state) => const SavedJobsScreen(),
+    ),
+    GoRoute(
+      path: '/AboutUsMobileScreen',
+      builder: (context, state) => const AboutUsMobileScreen(),
+    ),
+    GoRoute(
+      path: '/CandidatesPriceScreen',
+      builder: (context, state) => const CandidatesPriceScreen(),
+    ),
+    GoRoute(
+      path: '/ContactScreen',
+      builder: (context, state) => const ContactScreen(),
+    ),
+
+    // ============ EMPLOYER ============
+    GoRoute(
       path: '/EmployerProfile',
       builder: (context, state) => const EmployerProfile(),
-    ),
-// ============ ADMIN ============
-    GoRoute(path: '/AdminMain', builder: (context, state) => const AdminMain()),
-
-    GoRoute(
-      path: '/UserManagement',
-      builder: (context, state) => const UserManagementScreen(),
-    ),
-    GoRoute(
-      path: '/CompanyActivation',
-      builder: (context, state) => const CompanyActivationScreen(),
     ),
     GoRoute(
       path: '/HomepageEmployer',
@@ -202,8 +273,17 @@ GoRouter router = GoRouter(
     GoRoute(
       path: '/EmployerNotifications',
       builder: (context, state) => const EmployerNotificationsScreen(),
+    ),
 
+    // ============ ADMIN ============
+    GoRoute(path: '/AdminMain', builder: (context, state) => const AdminMain()),
+    GoRoute(
+      path: '/UserManagement',
+      builder: (context, state) => const UserManagementScreen(),
+    ),
+    GoRoute(
+      path: '/CompanyActivation',
+      builder: (context, state) => const CompanyActivationScreen(),
     ),
   ],
 );
-

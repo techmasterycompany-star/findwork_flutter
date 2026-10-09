@@ -79,6 +79,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
     "employees": MessageLookupByLibrary.simpleMessage("Employees"),
+    "exploreJobsDescription": MessageLookupByLibrary.simpleMessage(
+      "Explore thousands of jobs and find the perfect match \nfor your skills and career goals.",
+    ),
+    "findYour": MessageLookupByLibrary.simpleMessage("Find Your "),
     "finddreamjob": MessageLookupByLibrary.simpleMessage(
       "Find your dream job in just a few simple steps",
     ),
@@ -143,6 +147,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "location": MessageLookupByLibrary.simpleMessage("Canada"),
     "location2": MessageLookupByLibrary.simpleMessage("Canada"),
     "name": MessageLookupByLibrary.simpleMessage("Jonathan Doe"),
+    "nextOpportunity": MessageLookupByLibrary.simpleMessage(
+      "Next\nOpportunity",
+    ),
     "noSpamEver": MessageLookupByLibrary.simpleMessage("No spam, ever"),
     "oneHourAgo": MessageLookupByLibrary.simpleMessage("1 hour ago"),
     "overview": MessageLookupByLibrary.simpleMessage("Overview"),
@@ -158,6 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "recommendations": MessageLookupByLibrary.simpleMessage(
       "View all 24 recommendations → ",
     ),
+    "savedJobs": MessageLookupByLibrary.simpleMessage("Saved Jobs"),
     "search": MessageLookupByLibrary.simpleMessage("Job title"),
     "seniorUxDesignerDescription": MessageLookupByLibrary.simpleMessage(
       "A Senior UX Designer is a pivotal member of product development teams, responsible for ensuring that digital products and applications provide users with intuitive, efficient, and enjoyable interactions.",

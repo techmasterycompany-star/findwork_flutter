@@ -77,11 +77,11 @@ class _FindJobScreenState extends State<FindJobScreen> {
                         text: TextSpan(
                           children: [
                             TextSpan(
-                              text: 'Find Your ',
+                              text: S.of(context).findYour,
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
                             TextSpan(
-                              text: 'Next\nOpportunity',
+                              text: S.of(context).nextOpportunity,
                               style: TextStyle(
                                 color: AppColors.primary500,
                                 fontSize: 24,
@@ -111,7 +111,7 @@ class _FindJobScreenState extends State<FindJobScreen> {
               ),
               AppSpacing.vertical12,
               Text(
-                "Explore thousands of jobs and find the perfect match \nfor your skills and career goals.",
+                S.of(context).exploreJobsDescription,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               JobSearchBar(),

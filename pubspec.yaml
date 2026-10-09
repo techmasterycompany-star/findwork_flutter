@@ -56,6 +56,8 @@ flutter:
     - asset/images/user2.png
     - asset/images/user3.png
     - asset/images/user4.png
+    - asset/images/image4.png
+    - asset/images/image5.png
 
     # Development
     - assets/images/
