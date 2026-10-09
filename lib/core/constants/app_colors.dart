@@ -13,7 +13,6 @@ abstract class AppColors {
   static const Color primary800 = Color(0xFF5B21B6);
   static const Color primary900 = Color(0xFF4C1D95);
   static const Color primary950 = Color(0xFF2E1065);
-
   // ==================== Neutral ====================
   static const Color neutral50 = Color(0xFFFAFAFA);
   static const Color neutral100 = Color(0xFFF4F4F5);
