@@ -1019,6 +1019,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Find Your `
+  String get findYour {
+    return Intl.message('Find Your ', name: 'findYour', desc: '', args: []);
+  }
+
+  /// `Next\nOpportunity`
+  String get nextOpportunity {
+    return Intl.message(
+      'Next\nOpportunity',
+      name: 'nextOpportunity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore thousands of jobs and find the perfect match \nfor your skills and career goals.`
+  String get exploreJobsDescription {
+    return Intl.message(
+      'Explore thousands of jobs and find the perfect match \nfor your skills and career goals.',
+      name: 'exploreJobsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved Jobs`
+  String get savedJobs {
+    return Intl.message('Saved Jobs', name: 'savedJobs', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
